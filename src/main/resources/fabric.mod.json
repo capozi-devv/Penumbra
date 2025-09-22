@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "penumbra",
+  "version": "${version}",
+  "name": "Penumbra",
+  "description": "'Reality is an illusion, the universe is a hologram, buy gold! Bye!' -Bill Cipher, 2013",
+  "authors": [
+    "Capozi",
+    "Eyalego"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/penumbra/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "net.eya.penumbra.client.PenumbraDataGenerator"
+    ],
+    "client": [
+      "net.eya.penumbra.client.PenumbraClient"
+    ],
+    "main": [
+      "net.eya.penumbra.Penumbra"
+    ]
+  },
+  "mixins": [
+    "penumbra.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
