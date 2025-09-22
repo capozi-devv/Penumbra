@@ -15,5 +15,5 @@ public class EffectInit {
         return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(Penumbra.MOD_ID, name),statusEffect);
     }
     public static final StatusEffect NECROSIS = new NecrosisEffect(StatusEffectCategory.HARMFUL, -16777216);
-    public static RegistryEntry<StatusEffect> NECROSIS_EFFECT = registerStatusEffect("decadence", NECROSIS);
+    private static final RegistryEntry<StatusEffect> NECROSIS_EFFECT = registerStatusEffect("decadence", NECROSIS);
 }
