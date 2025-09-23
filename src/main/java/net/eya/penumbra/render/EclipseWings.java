@@ -1,4 +1,4 @@
-package net.eya.penumbra.rendering;
+package net.eya.penumbra.render;
 
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;

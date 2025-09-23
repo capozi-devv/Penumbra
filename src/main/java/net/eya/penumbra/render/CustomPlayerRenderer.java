@@ -1,7 +1,5 @@
-package net.eya.penumbra.rendering;
+package net.eya.penumbra.render;
 
-import net.eya.penumbra.rendering.EclipseWings;
-import net.eya.penumbra.rendering.EclipseWingsFeatureRenderer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.model.ModelPart;

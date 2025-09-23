@@ -1,10 +1,10 @@
 package net.eya.penumbra;
 
-import net.eya.penumbra.rendering.CustomPlayerRenderer;
+import net.eya.penumbra.render.CustomPlayerRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.eya.penumbra.rendering.EclipseWings;
+import net.eya.penumbra.render.EclipseWings;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.entity.EntityType;
 
