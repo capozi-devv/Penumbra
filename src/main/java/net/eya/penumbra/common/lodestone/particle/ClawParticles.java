@@ -1,6 +1,5 @@
-package net.eya.penumbra.common.particle;
+package net.eya.penumbra.common.lodestone.particle;
 
-import net.minecraft.client.particle.ParticleTextureSheet;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;

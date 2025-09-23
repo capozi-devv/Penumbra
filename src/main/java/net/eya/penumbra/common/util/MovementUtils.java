@@ -1,14 +1,26 @@
 package net.eya.penumbra.common.util;
 
+import net.eya.penumbra.common.lodestone.particle.ClawParticles;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Vec3d;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class MovementUtils {
+    static int times = ThreadLocalRandom.current().nextInt(20, 41);
     public static void dashPlayer(PlayerEntity player, double strength) {
         if (player == null) return;
         Vec3d look = player.getRotationVec(1.0F).normalize();
         Vec3d dashVelocity = new Vec3d(look.x * strength, look.y * strength, look.z * strength);
         player.addVelocity(dashVelocity.x, dashVelocity.y, dashVelocity.z);
+        player.velocityModified = true;
+    }
+    public static void cancelMomentum(PlayerEntity player) {
+        if(player == null) return;
+        player.setVelocity(Vec3d.ZERO);
+        for (int i = 0; i < times; i++) {
+            ClawParticles.spawnClawParticles(player.getWorld(), player.getPos());
+        }
         player.velocityModified = true;
     }
 }

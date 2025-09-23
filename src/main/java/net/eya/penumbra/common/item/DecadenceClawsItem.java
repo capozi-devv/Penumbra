@@ -1,28 +1,23 @@
 package net.eya.penumbra.common.item;
 
-import net.eya.penumbra.common.particle.ClawParticles;
+import net.eya.penumbra.common.lodestone.particle.ClawParticles;
 import net.eya.penumbra.common.util.HealthUtils;
 import net.eya.penumbra.common.util.MovementUtils;
 import net.eya.penumbra.foundation.EffectInit;
 import net.eya.penumbra.foundation.SoundInit;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
-import net.minecraft.particle.ParticleTypes;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -30,8 +25,8 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-public class DecadanceClawsItem extends SwordItem {
-    public DecadanceClawsItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
+public class DecadenceClawsItem extends SwordItem {
+    public DecadenceClawsItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
     }
     public List<PlayerEntity> playersWithNecrosis = new ArrayList<>();
@@ -55,7 +50,13 @@ public class DecadanceClawsItem extends SwordItem {
             }
             MovementUtils.dashPlayer(user, 2);
             user.playSound(SoundInit.CLAW_SLASH, SoundCategory.PLAYERS, 1f, 1f);
-            user.getItemCooldownManager().set(this, 100);
+            user.swingHand(hand, true);
+            HitResult hit = user.raycast(5.0D, 0.0F, false);
+            if (hit.getType() == HitResult.Type.ENTITY) {
+                EntityHitResult ehr = (EntityHitResult) hit;
+                user.attack(ehr.getEntity()); // Simulate left click attack
+            }
+            user.getItemCooldownManager().set(this, 60);
             isDashing = true;// man fuck chatgpt
             return TypedActionResult.pass(user.getStackInHand(hand));
         }
@@ -64,7 +65,7 @@ public class DecadanceClawsItem extends SwordItem {
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
         if(target instanceof PlayerEntity) {
-            target.addStatusEffect(new StatusEffectInstance(EffectInit.NECROSIS, 600, 1, false, false, false));
+            target.addStatusEffect(new StatusEffectInstance(EffectInit.NECROSIS, 600, 1, false, true, true));
             if (!playersWithNecrosis.contains(target)) {
                 PlayerEntity castedPlayer = (PlayerEntity) target;
                 playersWithNecrosis.add(castedPlayer);
@@ -75,6 +76,10 @@ public class DecadanceClawsItem extends SwordItem {
     @Override
     public boolean onLeftClickEntity(ItemStack stack, PlayerEntity player, Entity entity) {
         player.playSound(SoundInit.CLAW_ATTACK, SoundCategory.PLAYERS, 1f, 1f);
+        int amount = ThreadLocalRandom.current().nextInt(4, 6);
+        for(int i = 0; i < amount; i++) {
+            ClawParticles.spawnClawParticles(player.getWorld(), entity.getPos());
+        }
         return super.onLeftClickEntity(stack, player, entity);
     }
 }
