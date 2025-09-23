@@ -1,0 +1,14 @@
+{
+  "claw_slash": {
+    "subtitle": "sound.penumbra.claw_slash",
+    "sounds": [
+      "penumbra:claw_slash"
+    ]
+  },
+  "claw_attack": {
+    "subtitle": "sound.penumbra.claw_attack",
+    "sounds": [
+      "penumbra:claw_attack"
+    ]
+  }
+}

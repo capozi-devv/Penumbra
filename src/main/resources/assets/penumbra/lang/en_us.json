@@ -1,4 +1,6 @@
 {
   "item.penumbra.claws_of_decadence": "§6Claws of Decadence",
-  "effect.penumbra.decadence": "§6Despair"
+  "effect.penumbra.decadence": "§6Despair",
+  "sound.penumbra.claw_slash": "Claws of Decadence Dash",
+  "sound.penumbra.claw_attack": "Claws of Decadence Attack"
 }
