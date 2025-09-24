@@ -1,10 +1,12 @@
 package net.eya.penumbra;
 
+import net.eya.penumbra.common.command.SkyboxCommands;
 import net.eya.penumbra.common.render.EclipseHorns;
 import net.eya.penumbra.common.render.EclipseWings;
 import net.eya.penumbra.common.render.HornsFeatureRenderer;
 import net.eya.penumbra.common.render.WingsFeatureRenderer;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
@@ -14,6 +16,10 @@ import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.util.Identifier;
+import net.minecraft.world.dimension.DimensionType;
 
 public class PenumbraClient implements ClientModInitializer {
     @Override
@@ -38,6 +44,15 @@ public class PenumbraClient implements ClientModInitializer {
                         )
                 );
             }
+        });
+
+        RegistryKey<DimensionType> dimensionKey = RegistryKey.of(
+                RegistryKeys.DIMENSION_TYPE,
+                new Identifier("minecraft", "overworld") // Or your custom dimension ID
+        );
+
+        ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
+            SkyboxCommands.register(dispatcher);
         });
     }
 }

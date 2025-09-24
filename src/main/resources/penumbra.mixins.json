@@ -6,7 +6,9 @@
   "mixins": [
     "PlayerEntityMixin",
     "BipedEntityModelInvoker",
-    "GameRendererAccessor"
+    "GameRendererAccessor",
+    "PlayerEntityMixin",
+    "PlayerRendererMixin"
   ],
   "client": [
     "ClawRenderMixin",
