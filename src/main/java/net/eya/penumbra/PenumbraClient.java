@@ -1,12 +1,12 @@
 package net.eya.penumbra;
 
-import net.eya.penumbra.rendering.EclipseHorns;
-import net.eya.penumbra.rendering.HornsFeatureRenderer;
-import net.eya.penumbra.rendering.WingsFeatureRenderer;
+import net.eya.penumbra.common.render.EclipseHorns;
+import net.eya.penumbra.common.render.EclipseWings;
+import net.eya.penumbra.common.render.HornsFeatureRenderer;
+import net.eya.penumbra.common.render.WingsFeatureRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
-import net.eya.penumbra.rendering.EclipseWings;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;

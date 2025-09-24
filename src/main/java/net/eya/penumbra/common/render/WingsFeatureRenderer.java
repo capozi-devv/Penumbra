@@ -1,5 +1,6 @@
-package net.eya.penumbra.rendering;
+package net.eya.penumbra.common.render;
 
+import net.eya.penumbra.foundation.ItemInit;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
@@ -9,6 +10,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.model.ModelPart;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 
 public class WingsFeatureRenderer extends FeatureRenderer<PlayerEntity, PlayerEntityModel<PlayerEntity>> {
@@ -38,6 +40,9 @@ public class WingsFeatureRenderer extends FeatureRenderer<PlayerEntity, PlayerEn
                        PlayerEntity player, float limbSwing, float limbSwingAmount, float tickDelta,
                        float ageInTicks, float netHeadYaw, float headPitch) {
 
+        // ✅ Only render if the player is wearing full Eclipse armor
+        if (!isWearingFullEclipseArmor(player)) return;
+
         matrices.push();
 
         // Apply XYZ offset
@@ -52,5 +57,12 @@ public class WingsFeatureRenderer extends FeatureRenderer<PlayerEntity, PlayerEn
                 1.0F, 1.0F, 1.0F, 1.0F);
 
         matrices.pop();
+    }
+
+    private boolean isWearingFullEclipseArmor(PlayerEntity player) {
+        return player.getEquippedStack(EquipmentSlot.HEAD).getItem() == ItemInit.ECLIPSE_HELMET &&
+                player.getEquippedStack(EquipmentSlot.CHEST).getItem() == ItemInit.ECLIPSE_CHESTPLATE &&
+                player.getEquippedStack(EquipmentSlot.LEGS).getItem() == ItemInit.ECLIPSE_LEGGINGS &&
+                player.getEquippedStack(EquipmentSlot.FEET).getItem() == ItemInit.ECLIPSE_BOOTS;
     }
 }
