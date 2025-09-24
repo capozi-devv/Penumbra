@@ -31,13 +31,13 @@ public class EclipseWings<T extends Entity> extends EntityModel<T> {
 
         body.addChild("wing",
                 ModelPartBuilder.create()
-                        .uv(0, 0)
+                        .uv(0, -5)
                         .cuboid(0.0F, -10.0F, 0.0F, 0.0F, 19.0F, 23.0F, new Dilation(0.0F)),
                 ModelTransform.of(2.0F, -17.0F, 2.0F, 0.0F, 1.1781F, 0.0F));
 
         body.addChild("wing2",
                 ModelPartBuilder.create()
-                        .uv(0, 0)
+                        .uv(0, -5)
                         .cuboid(0.0F, -9.5F, 0.0F, 0.0F, 19.0F, 23.0F, new Dilation(0.0F)),
                 ModelTransform.of(-2.0F, -17.5F, 2.0F, 0.0F, -1.1781F, 0.0F));
 

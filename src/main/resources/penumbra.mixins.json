@@ -5,9 +5,14 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "PlayerEntityMixin",
-    "ServerPlayerEntityMixin"
+    "ServerPlayerEntityMixin",
+    "BipedEntityModelInvoker",
+    "GameRendererAccessor",
+    "PlayerRendererMixin"
   ],
   "client": [
+    "ClawRenderMixin",
+    "PlayerClawRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

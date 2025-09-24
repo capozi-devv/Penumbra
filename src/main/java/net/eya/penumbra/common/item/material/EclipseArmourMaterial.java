@@ -38,10 +38,10 @@ public class EclipseArmourMaterial implements ArmorMaterial {
     }
     @Override
     public float getToughness() {
-        return Integer.MAX_VALUE;
+        return 3;
     }
     @Override
     public float getKnockbackResistance() {
-        return 0;
+        return 1;
     }
 }
