@@ -39,7 +39,7 @@ public class DecadenceClawsItem extends SwordItem {
             for(PlayerEntity player : playersWithNecrosis) {
                 if (player != null && player.isAlive()) {
                     player.removeStatusEffect(EffectInit.NECROSIS);
-                    HealthUtils.reduceMaxHealth(player, 1f);
+                    HealthUtils.reduceMaxHealth(player, 1f, true);
                     playersWithNecrosis.remove(player);
                     return TypedActionResult.pass(user.getStackInHand(hand));
                 }

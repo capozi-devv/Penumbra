@@ -3,6 +3,8 @@ package net.eya.penumbra.foundation;
 import net.eya.penumbra.Penumbra;
 import net.eya.penumbra.common.item.DecadenceClawsItem;
 import net.eya.penumbra.common.item.RitualDaggerItem;
+import net.eya.penumbra.common.item.ServitudeTokenItem;
+import net.eya.penumbra.common.item.TestItem;
 import net.eya.penumbra.common.item.material.EclipseArmourMaterial;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
@@ -10,6 +12,8 @@ import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+
+import java.util.UUID;
 
 public class ItemInit {
     public static void init() {}
@@ -22,4 +26,6 @@ public class ItemInit {
     public static final Item ECLIPSE_CHESTPLATE = registerItem("eclipse_chestplate", new ArmorItem(EclipseArmourMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
     public static final Item ECLIPSE_LEGGINGS = registerItem("eclipse_leggings", new ArmorItem(EclipseArmourMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new Item.Settings()));
     public static final Item ECLIPSE_BOOTS = registerItem("eclipse_boots", new ArmorItem(EclipseArmourMaterial.INSTANCE, ArmorItem.Type.BOOTS, new Item.Settings()));
+    public static final Item TEST_ITEM = registerItem("test", new TestItem(new Item.Settings()));
+    public static final Item SERVITUDE_TOKEN = registerItem("token_of_servitude", new ServitudeTokenItem(new Item.Settings().maxCount(1)));
 }

@@ -25,7 +25,7 @@ public class ItemGroups {
                         entries.add(ItemInit.ECLIPSE_BOOTS);
                         entries.add(ItemInit.DECADENCE_CLAWS);
                         entries.add(ItemInit.RITUAL_DAGGER);
-            })
-            .build());
-
+                        entries.add(ItemInit.SERVITUDE_TOKEN);
+                        entries.add(ItemInit.TEST_ITEM);
+            }).build());
 }

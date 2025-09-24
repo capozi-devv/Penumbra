@@ -23,24 +23,23 @@ public class HealthUtils {
     }
     public static void removeExtraHearts(PlayerEntity player) {
         var attribute = player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
-        if(attribute!=null){
-            if(attribute.getModifier(EXTRA_HEARTS_UUID)!=null){
+        if(attribute != null){
+            if(attribute.getModifier(EXTRA_HEARTS_UUID) != null){
                 attribute.removeModifier(EXTRA_HEARTS_UUID);
             }
-            if(attribute.getModifier(REDUCED_HEALTH_UUID)!=null){
+            if(attribute.getModifier(REDUCED_HEALTH_UUID) != null){
                 attribute.removeModifier(REDUCED_HEALTH_UUID);
             }
         }
     }
-    public static void reduceMaxHealth(PlayerEntity player, float heartsToRemove) {
+    public static void reduceMaxHealth(PlayerEntity player, float heartsToRemove, boolean additive) {
         double amount = heartsToRemove * 2.0; // 1 heart = 2 HP
         EntityAttributeInstance attr = player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
         if (attr == null) return;
         EntityAttributeModifier existing = attr.getModifier(REDUCED_HEALTH_UUID);
-        if (existing != null) {
+        if (existing != null && !additive) {
             attr.removeModifier(REDUCED_HEALTH_UUID);
         }
-        // Apply new modifier
         EntityAttributeModifier modifier = new EntityAttributeModifier(
                 REDUCED_HEALTH_UUID,
                 "Reduced max health",

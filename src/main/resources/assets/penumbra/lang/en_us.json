@@ -1,7 +1,9 @@
 {
   "item.penumbra.claws_of_decadence": "§6Claws of Decadence",
   "item.penumbra.ritual_dagger": "Ritual Dagger",
+  "item.penumbra.token_of_servitude": "§bToken of Servitude",
   "itemgroup.penumbra": "Penumbra",
+  "block.penumbra.obelisk": "Obelisk of the Eclipse",
   "effect.penumbra.decadence": "§6Despair",
   "sound.penumbra.claw_slash": "Claws of Decadence Dash",
   "sound.penumbra.claw_attack": "Claws of Decadence Attack",

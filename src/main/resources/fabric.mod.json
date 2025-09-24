@@ -10,19 +10,27 @@
     "Nightmare",
     "CopiCraft"
   ],
+  "custom": {
+    "cardinal-components": [
+      "penumbra:eclipse_avatar"
+    ]
+  },
   "contact": {},
   "license": "MIT",
   "icon": "assets/penumbra/icon.png",
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
-      "net.eya.penumbra.client.PenumbraDataGenerator"
+      "net.eya.penumbra.PenumbraDataGenerator"
     ],
     "client": [
       "net.eya.penumbra.PenumbraClient"
     ],
     "main": [
       "net.eya.penumbra.Penumbra"
+    ],
+    "cardinal-components-entity": [
+      "net.eya.penumbra.PenumbraComponents"
     ]
   },
   "mixins": [

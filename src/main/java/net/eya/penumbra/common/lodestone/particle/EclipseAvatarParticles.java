@@ -17,12 +17,15 @@ public class EclipseAvatarParticles {
     public static void afterEffectParticles(World world, Vec3d pos) {
         Color startingColor = new Color(248, 209, 109);
         Color endingColor = new Color(118, 101, 89);
-        WorldParticleBuilder.create(LodestoneParticleRegistry.SPARKLE_PARTICLE)
-                .setScaleData(GenericParticleData.create(0.5f, 0).build())
+        WorldParticleBuilder.create(LodestoneParticleRegistry.SMOKE_PARTICLE)
+                .setScaleData(GenericParticleData.create(0.25f, 0).build())
                 .setTransparencyData(GenericParticleData.create(0.75f, 0.25f).build())
                 .setColorData(ColorParticleData.create(startingColor, endingColor).setCoefficient(1.4f).setEasing(Easing.BOUNCE_IN_OUT).build())
                 .setLifetime(50)
-                .addMotion(RandomHelper.randomBetween(Random.create(), -0.3f, 0.3f), RandomHelper.randomBetween(Random.create(), 0f, 0.5f), RandomHelper.randomBetween(Random.create(), -0.3f, 0.3f))
+                .spawn(world, pos.x, pos.y, pos.z)
+                .spawn(world, pos.x + 0.25f, pos.y, pos.z)
+                .spawn(world, pos.x, pos.y, pos.z)
+                .spawn(world, pos.x, pos.y, pos.z)
                 .spawn(world, pos.x, pos.y, pos.z);
     }
 }
