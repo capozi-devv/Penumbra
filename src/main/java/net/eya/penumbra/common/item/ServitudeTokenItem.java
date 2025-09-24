@@ -20,7 +20,6 @@ public class ServitudeTokenItem extends Item {
     }
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack.
         return super.use(world, user, hand);
     }
     @Override
