@@ -27,7 +27,6 @@ public class PenumbraClient implements ClientModInitializer {
         EntityModelLayerRegistry.registerModelLayer(EclipseWings.LAYER_LOCATION, EclipseWings::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(EclipseHorns.LAYER_LOCATION, EclipseHorns::getTexturedModelData);
         BlockRenderLayerMap.INSTANCE.putBlock(BlockInit.OBELISK, RenderLayer.getCutout());
-
         LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, renderer, registrationHelper, context) -> {
             if (renderer instanceof PlayerEntityRenderer playerRenderer) {
                 registrationHelper.register(
@@ -46,12 +45,10 @@ public class PenumbraClient implements ClientModInitializer {
                 );
             }
         });
-
         RegistryKey<DimensionType> dimensionKey = RegistryKey.of(
                 RegistryKeys.DIMENSION_TYPE,
                 new Identifier("minecraft", "overworld") // Or your custom dimension ID
         );
-
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
             SkyboxCommands.register(dispatcher);
         });
