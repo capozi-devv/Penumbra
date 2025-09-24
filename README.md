@@ -5,6 +5,7 @@ IMMA JUST HAVE THE WHOLE CONCEPT HERE:
 - Sacrificial Daggers: when used on an eclipse idol removes two hearts of maximum hp from the user and binds them to the idol.
 - Eldritch Shackle: when used binds the eclipse avatar with golden chains on their arms and legs, while bound the eclipse avatar cannot move and their attack damage is slowed down by 80% crafted with eight shackle shards (i'll do a scavenger hunt for these)
 - **Eclipse Avatar:**
+- the eclipse: during the eclipse avatar's transformation the sky is replaced with one with an eclipsed sun and golden stars.
 - general changes: the eclipse avatar has 30 hearts however it cannot eat or regenerate from food. instead it heals from it's weapons and abilities.
 - Armor: the eclipse avatar has armor, it's stats are the same as netherite but with more knockback resistance, the armor is invisible save for the chestplate and helmet which are wings and horns and a halo respectively.
 - Claws of Decadence: claws, render in both hands (as if you're holding one in your off hand even though you're not). 8 attack damage, 1.4 attack speed. on hit applies a despair effect with golden sparks instead of the usual effect particles. on right click any player with despair loses half a heart of max hp, everyone loses the despair effect, the user is healed by one heart for each player with despair and puts the claws on a cooldown for 10 seconds.
