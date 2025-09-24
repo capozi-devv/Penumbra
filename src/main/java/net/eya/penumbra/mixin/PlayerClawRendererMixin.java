@@ -1,6 +1,6 @@
 package net.eya.penumbra.mixin;
 
-import net.eya.penumbra.common.item.DecadanceClawsItem;
+import net.eya.penumbra.common.item.DecadenceClawsItem;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
@@ -81,11 +81,11 @@ public abstract class PlayerClawRendererMixin {
         ItemStack mainHand = player.getMainHandStack();
         ItemStack offHand = player.getOffHandStack();
 
-        if (mainHand.getItem() instanceof DecadanceClawsItem) {
+        if (mainHand.getItem() instanceof DecadenceClawsItem) {
             renderItemInHand(self, player, mainHand, matrices, vertexConsumers, light, false); // Right hand
         }
 
-        if (offHand.getItem() instanceof DecadanceClawsItem) {
+        if (offHand.getItem() instanceof DecadenceClawsItem) {
             renderItemInHand(self, player, offHand, matrices, vertexConsumers, light, true); // Left hand
         }
     }

@@ -1,6 +1,6 @@
 package net.eya.penumbra.mixin;
 
-import net.eya.penumbra.common.item.DecadanceClawsItem;
+import net.eya.penumbra.common.item.DecadenceClawsItem;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.HeldItemRenderer;
@@ -37,7 +37,7 @@ public class ClawRenderMixin {
             Hand otherHand = hand == Hand.MAIN_HAND ? Hand.OFF_HAND : Hand.MAIN_HAND;
             ItemStack otherStack = player.getStackInHand(otherHand);
 
-            if (otherStack.getItem() instanceof DecadanceClawsItem) {
+            if (otherStack.getItem() instanceof DecadenceClawsItem) {
                 boolean leftHanded = (hand == Hand.OFF_HAND);
                 Arm arm = (hand == Hand.MAIN_HAND) ? player.getMainArm() : player.getMainArm().getOpposite();
 

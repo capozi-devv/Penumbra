@@ -5,16 +5,16 @@ import net.eya.penumbra.common.render.EclipseHorns;
 import net.eya.penumbra.common.render.EclipseWings;
 import net.eya.penumbra.common.render.HornsFeatureRenderer;
 import net.eya.penumbra.common.render.WingsFeatureRenderer;
+import net.eya.penumbra.foundation.BlockInit;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
-import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -26,6 +26,7 @@ public class PenumbraClient implements ClientModInitializer {
     public void onInitializeClient() {
         EntityModelLayerRegistry.registerModelLayer(EclipseWings.LAYER_LOCATION, EclipseWings::getTexturedModelData);
         EntityModelLayerRegistry.registerModelLayer(EclipseHorns.LAYER_LOCATION, EclipseHorns::getTexturedModelData);
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockInit.OBELISK, RenderLayer.getCutout());
 
         LivingEntityFeatureRendererRegistrationCallback.EVENT.register((entityType, renderer, registrationHelper, context) -> {
             if (renderer instanceof PlayerEntityRenderer playerRenderer) {
