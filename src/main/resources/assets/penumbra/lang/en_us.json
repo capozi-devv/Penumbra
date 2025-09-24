@@ -1,6 +1,9 @@
 {
   "item.penumbra.claws_of_decadence": "§6Claws of Decadence",
+  "item.penumbra.ritual_dagger": "Ritual Dagger",
+  "itemgroup.penumbra": "Penumbra",
   "effect.penumbra.decadence": "§6Despair",
   "sound.penumbra.claw_slash": "Claws of Decadence Dash",
-  "sound.penumbra.claw_attack": "Claws of Decadence Attack"
+  "sound.penumbra.claw_attack": "Claws of Decadence Attack",
+  "death.attack.dagger": "%1$s attempted to bring about The Eclipse to aggressively"
 }

@@ -1,7 +1,10 @@
 package net.eya.penumbra.foundation;
 
 import net.eya.penumbra.Penumbra;
-import net.eya.penumbra.common.item.DecadanceClawsItem;
+import net.eya.penumbra.common.item.DecadenceClawsItem;
+import net.eya.penumbra.common.item.RitualDaggerItem;
+import net.eya.penumbra.common.item.material.EclipseArmourMaterial;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
@@ -13,5 +16,10 @@ public class ItemInit {
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Penumbra.MOD_ID, name), item);
     }
-    public static final Item DECADENCE_CLAWS = registerItem("claws_of_decadence", new DecadanceClawsItem(ToolMaterials.NETHERITE, 4, -2.6f, new Item.Settings().maxCount(1)));
+    public static final Item DECADENCE_CLAWS = registerItem("claws_of_decadence", new DecadenceClawsItem(ToolMaterials.NETHERITE, 4, -2.6f, new Item.Settings().maxCount(1)));
+    public static final Item RITUAL_DAGGER = registerItem("ritual_dagger", new RitualDaggerItem(new Item.Settings().maxCount(1)));
+    public static final Item ECLIPSE_HELMET = registerItem("eclipse_helmet", new ArmorItem(EclipseArmourMaterial.INSTANCE, ArmorItem.Type.HELMET, new Item.Settings()));
+    public static final Item ECLIPSE_CHESTPLATE = registerItem("eclipse_chestplate", new ArmorItem(EclipseArmourMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
+    public static final Item ECLIPSE_LEGGINGS = registerItem("eclipse_leggings", new ArmorItem(EclipseArmourMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new Item.Settings()));
+    public static final Item ECLIPSE_BOOTS = registerItem("eclipse_boots", new ArmorItem(EclipseArmourMaterial.INSTANCE, ArmorItem.Type.BOOTS, new Item.Settings()));
 }
