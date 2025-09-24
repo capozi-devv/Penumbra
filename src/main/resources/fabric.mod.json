@@ -19,7 +19,7 @@
       "net.eya.penumbra.client.PenumbraDataGenerator"
     ],
     "client": [
-      "net.eya.penumbra.client.PenumbraClient"
+      "net.eya.penumbra.PenumbraClient"
     ],
     "main": [
       "net.eya.penumbra.Penumbra"
