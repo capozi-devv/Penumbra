@@ -1,4 +1,5 @@
 IMMA JUST HAVE THE WHOLE CONCEPT HERE:
+
 **non eclipse avatar features:**
 - eclipse idol: when 3 players bind themselves to the idol makes the next person who clicks on it achieve avatar of the eclipse transformation. also makes all bound players become lackeys.
 - Sacrificial Daggers: when used on an eclipse idol removes two hearts of maximum hp from the user and binds them to the idol.
