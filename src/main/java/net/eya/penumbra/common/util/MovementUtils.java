@@ -7,7 +7,7 @@ import net.minecraft.util.math.Vec3d;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class MovementUtils {
-    static int times = ThreadLocalRandom.current().nextInt(20, 41);
+    static int times = ThreadLocalRandom.current().nextInt(10, 21);
     public static void dashPlayer(PlayerEntity player, double strength) {
         if (player == null) return;
         Vec3d look = player.getRotationVec(1.0F).normalize();

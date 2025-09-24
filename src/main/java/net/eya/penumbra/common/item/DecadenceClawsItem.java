@@ -57,7 +57,7 @@ public class DecadenceClawsItem extends SwordItem {
                 user.attack(ehr.getEntity()); // Simulate left click attack
             }
             user.getItemCooldownManager().set(this, 60);
-            isDashing = true;// man fuck chatgpt
+            isDashing = true; // man fuck chatgpt
             return TypedActionResult.pass(user.getStackInHand(hand));
         }
         return super.use(world, user, hand);

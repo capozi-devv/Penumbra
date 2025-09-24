@@ -1,4 +1,4 @@
-package net.eya.penumbra.render;
+package net.eya.penumbra.common.render;
 
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.network.AbstractClientPlayerEntity;

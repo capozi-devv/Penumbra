@@ -13,18 +13,16 @@ import team.lodestar.lodestone.systems.particle.data.spin.SpinParticleData;
 
 import java.awt.*;
 
-
-public class ClawParticles {
-    public static void spawnClawParticles(World level, Vec3d pos) {
+public class EclipseAvatarParticles {
+    public static void afterEffectParticles(World world, Vec3d pos) {
         Color startingColor = new Color(248, 209, 109);
-        Color endingColor = new Color(151, 99, 57);
+        Color endingColor = new Color(118, 101, 89);
         WorldParticleBuilder.create(LodestoneParticleRegistry.SPARKLE_PARTICLE)
                 .setScaleData(GenericParticleData.create(0.5f, 0).build())
                 .setTransparencyData(GenericParticleData.create(0.75f, 0.25f).build())
                 .setColorData(ColorParticleData.create(startingColor, endingColor).setCoefficient(1.4f).setEasing(Easing.BOUNCE_IN_OUT).build())
-                .setSpinData(SpinParticleData.create(0.2f, 0.4f).setSpinOffset((level.getTime() * 0.2f) % 6.28f).setEasing(Easing.QUARTIC_IN).build())
-                .setLifetime(30)
+                .setLifetime(50)
                 .addMotion(RandomHelper.randomBetween(Random.create(), -0.3f, 0.3f), RandomHelper.randomBetween(Random.create(), 0f, 0.5f), RandomHelper.randomBetween(Random.create(), -0.3f, 0.3f))
-                .spawn(level, pos.x, pos.y, pos.z);
+                .spawn(world, pos.x, pos.y, pos.z);
     }
 }

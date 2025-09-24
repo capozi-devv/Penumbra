@@ -1,9 +1,6 @@
 package net.eya.penumbra;
 
-import net.eya.penumbra.foundation.BlockInit;
-import net.eya.penumbra.foundation.EffectInit;
-import net.eya.penumbra.foundation.ItemInit;
-import net.eya.penumbra.foundation.SoundInit;
+import net.eya.penumbra.foundation.*;
 import net.fabricmc.api.ModInitializer;
 
 public class Penumbra implements ModInitializer {
@@ -14,5 +11,6 @@ public class Penumbra implements ModInitializer {
         EffectInit.init();
         ItemInit.init();
         SoundInit.init();
+        DamageTypeInit.init();
     }
 }
