@@ -21,5 +21,23 @@ public class Penumbra implements ModInitializer {
         DamageTypeInit.init();
         ItemGroups.init();
         LOGGER.info("Capozi I'm begging you to tell us what you're doing");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
     }
 }

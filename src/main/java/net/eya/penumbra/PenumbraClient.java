@@ -6,6 +6,7 @@ import net.eya.penumbra.common.render.EclipseWings;
 import net.eya.penumbra.common.render.HornsFeatureRenderer;
 import net.eya.penumbra.common.render.WingsFeatureRenderer;
 import net.eya.penumbra.foundation.BlockInit;
+import net.eya.penumbra.foundation.ParticleInit;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
@@ -52,5 +53,6 @@ public class PenumbraClient implements ClientModInitializer {
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, registryAccess) -> {
             SkyboxCommands.register(dispatcher);
         });
+        ParticleInit.registerParticleFactory();
     }
 }

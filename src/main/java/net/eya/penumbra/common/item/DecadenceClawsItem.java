@@ -31,7 +31,7 @@ public class DecadenceClawsItem extends SwordItem {
     }
     public List<PlayerEntity> playersWithNecrosis = new ArrayList<>();
     int times = ThreadLocalRandom.current().nextInt(40, 61);
-    public static boolean isDashing = false;
+    public static Boolean isDashing;
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(user.isSneaking()){
