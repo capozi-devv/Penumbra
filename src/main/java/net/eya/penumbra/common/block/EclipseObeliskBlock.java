@@ -13,7 +13,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class EclipseObeliskBlock extends Block {
-    public static final VoxelShape SHAPE = createCuboidShape((double)2.0F, (double)0.0F, (double)2.0F, (double)14.0F, (double)32.0F, (double)14.0F);
+    public static final VoxelShape SHAPE = createCuboidShape((double)1.5F, (double)0.0F, (double)1.5F, (double)14.5F, (double)32.0F, (double)14.5F);
     public EclipseObeliskBlock(Settings settings) {
         super(settings);
     }

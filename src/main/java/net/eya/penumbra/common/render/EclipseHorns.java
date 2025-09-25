@@ -11,7 +11,7 @@ import net.minecraft.entity.Entity;
 public class EclipseHorns<T extends Entity> extends EntityModel<T> {
     // Layer location baked with EntityRendererFactory.Context in the renderer
     public static final EntityModelLayer LAYER_LOCATION =
-            new EntityModelLayer(new Identifier("modid", "eclipse_horns"), "main");
+            new EntityModelLayer(new Identifier("penumbra", "eclipse_horns"), "main");
 
     private final ModelPart head;
     private final ModelPart halo;
