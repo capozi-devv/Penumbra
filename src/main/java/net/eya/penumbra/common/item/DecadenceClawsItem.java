@@ -5,6 +5,7 @@ import net.eya.penumbra.common.util.HealthUtils;
 import net.eya.penumbra.common.util.MovementUtils;
 import net.eya.penumbra.foundation.EffectInit;
 import net.eya.penumbra.foundation.SoundInit;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -31,7 +32,7 @@ public class DecadenceClawsItem extends SwordItem {
     }
     public List<PlayerEntity> playersWithNecrosis = new ArrayList<>();
     int times = ThreadLocalRandom.current().nextInt(40, 61);
-    public static Boolean isDashing;
+    public static Boolean isDashing = false;
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(user.isSneaking()){
@@ -81,5 +82,33 @@ public class DecadenceClawsItem extends SwordItem {
             AllParticles.spawnClawParticles(player.getWorld(), entity.getPos());
         }
         return super.onLeftClickEntity(stack, player, entity);
+    }
+
+    @Override
+    public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
+        if (selected && isDashing) {
+            if(((entity) instanceof PlayerEntity playerEntity)) {
+                for (int i = 0; i < 21; i++) {
+                    if((playerEntity).getServer() != null) {
+                        if((playerEntity).getServer().getTicks() % (2 + i) == 0) {
+                            if(DecadenceClawsItem.isDashing) {
+                                AllParticles.spawnClawParticles((playerEntity).getWorld(), (playerEntity).getPos());
+                            }
+                            if(i >= 20) {
+                                DecadenceClawsItem.isDashing = false;
+                            }
+                        }
+                    } else if(MinecraftClient.getInstance().world.getTime() % (2 + i) == 0) {
+                        if(DecadenceClawsItem.isDashing) {
+                            AllParticles.spawnClawParticles((playerEntity).getWorld(), (playerEntity).getPos());
+                        }
+                        if(i >= 20) {
+                            DecadenceClawsItem.isDashing = false;
+                        }
+                    }
+                }
+            }
+        }
+        super.inventoryTick(stack, world, entity, slot, selected);
     }
 }

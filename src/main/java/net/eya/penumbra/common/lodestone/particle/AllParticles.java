@@ -16,8 +16,8 @@ import java.awt.*;
 
 public class AllParticles {
     public static void spawnClawParticles(World level, Vec3d pos) {
-        Color startingColor = new Color(248, 209, 109);
-        Color endingColor = new Color(151, 99, 57);
+        Color startingColor = new Color(255, 240, 154);
+        Color endingColor = new Color(216, 167, 82);
         WorldParticleBuilder.create(ParticleInit.GOLDEN_SPARK)
                 .setScaleData(GenericParticleData.create(0.5f, 0).build())
                 .setTransparencyData(GenericParticleData.create(0.75f, 0.25f).build())
