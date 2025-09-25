@@ -1,5 +1,8 @@
 package net.eya.penumbra.common.lodestone.particle;
 
+import net.minecraft.client.model.ModelPart;
+import net.minecraft.client.render.Camera;
+import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
@@ -11,6 +14,9 @@ import team.lodestar.lodestone.systems.particle.data.GenericParticleData;
 import team.lodestar.lodestone.systems.particle.data.color.ColorParticleData;
 import team.lodestar.lodestone.systems.particle.data.spin.SpinParticleData;
 import team.lodestar.lodestone.systems.particle.render_types.LodestoneWorldParticleRenderType;
+import team.lodestar.lodestone.systems.particle.world.LodestoneWorldParticle;
+import team.lodestar.lodestone.systems.particle.world.behaviors.components.DirectionalBehaviorComponent;
+import team.lodestar.lodestone.systems.particle.world.behaviors.components.LodestoneBehaviorComponent;
 
 import java.awt.*;
 
@@ -42,15 +48,15 @@ public class AllParticles {
                 .spawn(world, pos.x, pos.y, pos.z);
     }
     public static void obeliskParticles(World level, Vec3d pos) {
-        Color startingColor = new Color(118, 101, 89);
-        Color endingColor = new Color(118, 101, 89);
-        WorldParticleBuilder.create(LodestoneParticleRegistry.EXTRUDING_SPARK_PARTICLE)
-                .setScaleData(GenericParticleData.create(3f, 0).build())
+        Color startingColor = new Color(216, 167, 82);
+        Color endingColor = new Color(184, 131, 70);
+        WorldParticleBuilder.create(LodestoneParticleRegistry.SPARKLE_PARTICLE)
+                .setScaleData(GenericParticleData.create(0.2f, 0).setEasing(Easing.QUAD_IN).build())
                 .setTransparencyData(GenericParticleData.create(0.75f, 0.25f).build())
                 .setColorData(ColorParticleData.create(startingColor, endingColor).setCoefficient(1.4f).build())
-                .setSpinData(SpinParticleData.create(0f, 0f).build())
+                .setSpinData(SpinParticleData.create(0f, RandomHelper.randomBetween(Random.create(), -1, 1)).build())
                 .setLifetime(40)
-                .spawn(level, pos.x, pos.y, pos.z)
-                .addMotion(0d, 0d, 0d);
+                .addMotion(RandomHelper.randomBetween(Random.create(), Easing.QUAD_IN, -0.1f, 0.1f), RandomHelper.randomBetween(Random.create(), Easing.QUAD_IN, 0f, 0.2f), RandomHelper.randomBetween(Random.create(), Easing.QUAD_IN, -0.1f, 0.1f))
+                .spawn(level, pos.x, pos.y, pos.z);
     }
 }
