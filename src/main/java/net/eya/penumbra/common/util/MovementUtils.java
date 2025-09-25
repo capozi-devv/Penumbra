@@ -1,6 +1,6 @@
 package net.eya.penumbra.common.util;
 
-import net.eya.penumbra.common.lodestone.particle.ClawParticles;
+import net.eya.penumbra.common.lodestone.particle.AllParticles;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Vec3d;
 
@@ -19,7 +19,7 @@ public class MovementUtils {
         if(player == null) return;
         player.setVelocity(Vec3d.ZERO);
         for (int i = 0; i < times; i++) {
-            ClawParticles.spawnClawParticles(player.getWorld(), player.getPos());
+            AllParticles.spawnClawParticles(player.getWorld(), player.getPos());
         }
         player.velocityModified = true;
     }

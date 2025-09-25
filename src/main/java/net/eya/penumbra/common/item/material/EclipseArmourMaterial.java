@@ -42,6 +42,6 @@ public class EclipseArmourMaterial implements ArmorMaterial {
     }
     @Override
     public float getKnockbackResistance() {
-        return 1;
+        return 0;
     }
 }

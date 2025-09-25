@@ -1,7 +1,7 @@
 package net.eya.penumbra.mixin;
 
 import net.eya.penumbra.common.item.DecadenceClawsItem;
-import net.eya.penumbra.common.lodestone.particle.ClawParticles;
+import net.eya.penumbra.common.lodestone.particle.AllParticles;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.player.PlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,7 +19,7 @@ public class PlayerEntityMixin {
                 if(((PlayerEntity)((Object)this)).getServer() != null) {
                     if(((PlayerEntity)((Object)this)).getServer().getTicks() % (2 + finalI) == 0) {
                         if(DecadenceClawsItem.isDashing) {
-                            ClawParticles.spawnClawParticles(((PlayerEntity)((Object)this)).getWorld(), ((PlayerEntity)((Object)this)).getPos());
+                            AllParticles.spawnClawParticles(((PlayerEntity)((Object)this)).getWorld(), ((PlayerEntity)((Object)this)).getPos());
                         }
                         if(i >= 20) {
                             DecadenceClawsItem.isDashing = false;
@@ -27,7 +27,7 @@ public class PlayerEntityMixin {
                     }
                 } else if(MinecraftClient.getInstance().world.getTime() % (1 + finalI) == 0) {
                     if(DecadenceClawsItem.isDashing) {
-                        ClawParticles.spawnClawParticles(((PlayerEntity)((Object)this)).getWorld(), ((PlayerEntity)((Object)this)).getPos());
+                        AllParticles.spawnClawParticles(((PlayerEntity)((Object)this)).getWorld(), ((PlayerEntity)((Object)this)).getPos());
                     }
                     if(i >= 20) {
                         DecadenceClawsItem.isDashing = false;

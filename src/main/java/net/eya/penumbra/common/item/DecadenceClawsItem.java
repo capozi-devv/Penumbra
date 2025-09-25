@@ -1,6 +1,6 @@
 package net.eya.penumbra.common.item;
 
-import net.eya.penumbra.common.lodestone.particle.ClawParticles;
+import net.eya.penumbra.common.lodestone.particle.AllParticles;
 import net.eya.penumbra.common.util.HealthUtils;
 import net.eya.penumbra.common.util.MovementUtils;
 import net.eya.penumbra.foundation.EffectInit;
@@ -46,7 +46,7 @@ public class DecadenceClawsItem extends SwordItem {
             }
         } else {
             for (int i = 0; i < times; i++) {
-                ClawParticles.spawnClawParticles(user.getWorld(), user.getPos());
+                AllParticles.spawnClawParticles(user.getWorld(), user.getPos());
             }
             MovementUtils.dashPlayer(user, 2);
             user.playSound(SoundInit.CLAW_SLASH, SoundCategory.PLAYERS, 1f, 1f);
@@ -56,7 +56,7 @@ public class DecadenceClawsItem extends SwordItem {
                 EntityHitResult ehr = (EntityHitResult) hit;
                 user.attack(ehr.getEntity()); // Simulate left click attack
             }
-            user.getItemCooldownManager().set(this, 60);
+            user.getItemCooldownManager().set(this, 20);
             isDashing = true; // man fuck chatgpt
             return TypedActionResult.pass(user.getStackInHand(hand));
         }
@@ -78,7 +78,7 @@ public class DecadenceClawsItem extends SwordItem {
         player.playSound(SoundInit.CLAW_ATTACK, SoundCategory.PLAYERS, 1f, 1f);
         int amount = ThreadLocalRandom.current().nextInt(4, 6);
         for(int i = 0; i < amount; i++) {
-            ClawParticles.spawnClawParticles(player.getWorld(), entity.getPos());
+            AllParticles.spawnClawParticles(player.getWorld(), entity.getPos());
         }
         return super.onLeftClickEntity(stack, player, entity);
     }

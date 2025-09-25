@@ -2,7 +2,6 @@ package net.eya.penumbra.mixin;
 
 import net.eya.penumbra.Penumbra;
 import net.eya.penumbra.common.cca.EclipseAvatarComponent;
-import net.eya.penumbra.common.lodestone.particle.EclipseAvatarParticles;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,8 +15,5 @@ public class ServerPlayerEntityMixin {
         ServerPlayerEntity player = (ServerPlayerEntity)(Object)this;
         EclipseAvatarComponent avatarComponent = Penumbra.getEclipseAvatar().get(player);
         avatarComponent.tickAvatarValue(player);
-        if(avatarComponent.isAvatar(player)) {
-            EclipseAvatarParticles.afterEffectParticles(player.getWorld(), player.getPos());
-        }
     }
 }
