@@ -1,7 +1,7 @@
 package net.eya.penumbra.common.command;
 
 import com.mojang.brigadier.CommandDispatcher;
-import net.eya.penumbra.common.util.CustomSkyRenderer;
+import net.eya.penumbra.common.render.CustomSkyRenderer;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;

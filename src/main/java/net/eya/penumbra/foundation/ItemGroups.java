@@ -17,8 +17,8 @@ public class ItemGroups {
     public static final ItemGroup MAISONNETTE_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(Penumbra.MOD_ID, "penumbra"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.penumbra"))
-                    .icon(() -> new ItemStack(ItemInit.RITUAL_DAGGER)).entries((displayContext, entries) -> {
-                        entries.add(BlockInit.OBELISK);
+                    .icon(() -> new ItemStack(ItemInit.SERVITUDE_TOKEN)).entries((displayContext, entries) -> {
+                        entries.add(ItemInit.TEST_ITEM);
                         entries.add(ItemInit.ECLIPSE_HELMET);
                         entries.add(ItemInit.ECLIPSE_CHESTPLATE);
                         entries.add(ItemInit.ECLIPSE_LEGGINGS);
@@ -26,6 +26,6 @@ public class ItemGroups {
                         entries.add(ItemInit.DECADENCE_CLAWS);
                         entries.add(ItemInit.RITUAL_DAGGER);
                         entries.add(ItemInit.SERVITUDE_TOKEN);
-                        entries.add(ItemInit.TEST_ITEM);
+                        entries.add(BlockInit.OBELISK);
             }).build());
 }

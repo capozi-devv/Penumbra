@@ -43,7 +43,7 @@ public class EclipseObeliskBlock extends Block {
         if(world.isClient()) {
             if(player.getStackInHand(hand).getItem() instanceof ServitudeTokenItem) {
                 for (int i = 0; i < times; i++) {
-                    AllParticles.obeliskAuraParticles(world, Vec3d.ofCenter(pos), 0.5f);
+                    AllParticles.obeliskAuraParticles(world, Vec3d.ofCenter(pos));
                 }
                 return ActionResult.SUCCESS;
             }
