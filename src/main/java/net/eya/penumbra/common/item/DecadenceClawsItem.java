@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
@@ -41,6 +42,8 @@ public class DecadenceClawsItem extends SwordItem {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(user.isSneaking()){
             user.playSound(SoundEvents.BLOCK_BEACON_ACTIVATE, SoundCategory.PLAYERS, 1f, 1f);
+            int duration = 5 * playersWithNecrosis.toArray().length;
+            user.addStatusEffect(new StatusEffectInstance(StatusEffects.SATURATION, duration, 1, false, false, true));
             for(PlayerEntity player : playersWithNecrosis) {
                 if (player != null && player.isAlive()) {
                     player.removeStatusEffect(EffectInit.NECROSIS);
