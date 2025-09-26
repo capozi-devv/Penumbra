@@ -3,16 +3,19 @@ package net.eya.penumbra.common.item;
 import net.eya.penumbra.common.lodestone.particle.AllParticles;
 import net.eya.penumbra.common.util.HealthUtils;
 import net.eya.penumbra.common.util.MovementUtils;
+import net.eya.penumbra.foundation.DamageTypeInit;
 import net.eya.penumbra.foundation.EffectInit;
 import net.eya.penumbra.foundation.SoundInit;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
@@ -71,6 +74,8 @@ public class DecadenceClawsItem extends SwordItem {
     }
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        DamageSource source = new DamageSource(attacker.getWorld().getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(DamageTypeInit.CLAW_DAMAGE));
+        target.damage(source, this.getAttackDamage());
         if(target instanceof PlayerEntity) {
             target.addStatusEffect(new StatusEffectInstance(EffectInit.NECROSIS, 600, 1, false, true, true));
             if (!playersWithNecrosis.contains(target)) {
@@ -108,6 +113,7 @@ public class DecadenceClawsItem extends SwordItem {
                     } else if(MinecraftClient.getInstance().world.getTime() % (2 + i) == 0) {
                         if(isDashing) {
                             AllParticles.spawnClawParticles((playerEntity).getWorld(), (playerEntity).getPos());
+                            AllParticles.spawnClawParticlesB((playerEntity).getWorld(), (playerEntity).getPos());
                         }
                         if(i >= 20) {
                             isDashing = false;

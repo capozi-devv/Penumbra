@@ -22,10 +22,10 @@ public class ItemInit {
     }
     public static final Item DECADENCE_CLAWS = registerItem("claws_of_decadence", new DecadenceClawsItem(ToolMaterials.NETHERITE, 4, -2.6f, new Item.Settings().maxCount(1)));
     public static final Item RITUAL_DAGGER = registerItem("ritual_dagger", new RitualDaggerItem(new Item.Settings().maxCount(1)));
-    public static final Item ECLIPSE_HELMET = registerItem("eclipse_helmet", new ArmorItem(EclipseArmourMaterial.INSTANCE, ArmorItem.Type.HELMET, new Item.Settings()));
-    public static final Item ECLIPSE_CHESTPLATE = registerItem("eclipse_chestplate", new ArmorItem(EclipseArmourMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
-    public static final Item ECLIPSE_LEGGINGS = registerItem("eclipse_leggings", new ArmorItem(EclipseArmourMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new Item.Settings()));
-    public static final Item ECLIPSE_BOOTS = registerItem("eclipse_boots", new ArmorItem(EclipseArmourMaterial.INSTANCE, ArmorItem.Type.BOOTS, new Item.Settings()));
+    public static final Item ECLIPSE_HELMET = registerItem("eclipse_helmet", new ArmorItem(EclipseArmourMaterial.ECLIPSE_ARMOUR_MATERIAL, ArmorItem.Type.HELMET, new Item.Settings()));
+    public static final Item ECLIPSE_CHESTPLATE = registerItem("eclipse_chestplate", new ArmorItem(EclipseArmourMaterial.ECLIPSE_ARMOUR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Settings()));
+    public static final Item ECLIPSE_LEGGINGS = registerItem("eclipse_leggings", new ArmorItem(EclipseArmourMaterial.ECLIPSE_ARMOUR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Settings()));
+    public static final Item ECLIPSE_BOOTS = registerItem("eclipse_boots", new ArmorItem(EclipseArmourMaterial.ECLIPSE_ARMOUR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings()));
     public static final Item TEST_ITEM = registerItem("test", new TestItem(new Item.Settings()));
     public static final Item SERVITUDE_TOKEN = registerItem("token_of_servitude", new ServitudeTokenItem(new Item.Settings().maxCount(1)));
 }

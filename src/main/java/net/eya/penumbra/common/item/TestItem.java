@@ -13,7 +13,6 @@ public class TestItem extends Item {
     public TestItem(Settings settings) {
         super(settings);
     }
-
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(user != null) {

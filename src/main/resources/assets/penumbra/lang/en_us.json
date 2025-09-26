@@ -7,5 +7,7 @@
   "effect.penumbra.decadence": "§6Despair",
   "sound.penumbra.claw_slash": "Claws of Decadence Dash",
   "sound.penumbra.claw_attack": "Claws of Decadence Attack",
-  "death.attack.dagger": "%1$s attempted to bring about The Eclipse to aggressively"
+  "death.attack.dagger": "%1$s attempted to bring about The Eclipse to aggressively",
+  "death.attack.claw": "%1$s was shredded by %2$s",
+  "death.attack.claw.item": "%1$s was shredded by %2$s wielding %3$s"
 }

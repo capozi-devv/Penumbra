@@ -8,4 +8,5 @@ import net.minecraft.util.Identifier;
 public class DamageTypeInit {
     public static void init() {}
     public static final RegistryKey<DamageType> DAGGER_DAMAGE = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier("penumbra", "dagger"));
+    public static final RegistryKey<DamageType> CLAW_DAMAGE = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier("penumbra", "claw"));
 }
