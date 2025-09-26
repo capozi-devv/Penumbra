@@ -53,4 +53,15 @@ public class AllParticles {
                 .addMotion(RandomHelper.randomBetween(Random.create(), Easing.EXPO_OUT, -0.1f, 0.1f), RandomHelper.randomBetween(Random.create(), Easing.EXPO_OUT, -0f, 0.2f), RandomHelper.randomBetween(Random.create(), Easing.EXPO_OUT, -0.1f, 0.1f))
                 .spawn(level, pos.x, pos.y, pos.z);
     }
+    public static void obeliskAuraParticles(World world, Vec3d pos, double strength) {
+        Color congruent = new Color(126, 116, 112);
+        WorldParticleBuilder.create(LodestoneParticleRegistry.SMOKE_PARTICLE)
+                .setScaleData(GenericParticleData.create(0.85f, 0).setEasing(Easing.BOUNCE_IN_OUT).build())
+                .setTransparencyData(GenericParticleData.create(0.85f, 0.15f).build())
+                .setColorData(ColorParticleData.create(congruent, congruent).setCoefficient(1.4f).build())
+                .setSpinData(SpinParticleData.create(0f, 0f).build())
+                .setLifetime(40)
+                .addMotion(RandomHelper.randomBetween(Random.create(), -0.1f, 0.1f), RandomHelper.randomBetween(Random.create(), Easing.CIRC_IN, 0.5f, 1f), RandomHelper.randomBetween(Random.create(), -0.1f, 0.1f))
+                .spawn(world, pos.x, pos.y, pos.z);
+    }
 }
