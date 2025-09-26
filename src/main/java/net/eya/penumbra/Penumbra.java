@@ -23,5 +23,6 @@ public class Penumbra implements ModInitializer {
         ParticleInit.PARTICLES.register();
         LOGGER.info("Capozi I'm begging you to tell us what you're doing");
         LOGGER.info("why'd you use a static variable for isDashing? - InfinityFarzad");
+        LOGGER.info("i'm pondering my orb, what else would i be doing");
     }
 }

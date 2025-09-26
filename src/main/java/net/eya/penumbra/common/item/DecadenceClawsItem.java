@@ -19,6 +19,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -45,21 +46,26 @@ public class DecadenceClawsItem extends SwordItem {
                     return TypedActionResult.pass(user.getStackInHand(hand));
                 }
             }
+            user.getItemCooldownManager().set(this, 160);
         } else {
             for (int i = 0; i < times; i++) {
                 AllParticles.spawnClawParticles(user.getWorld(), user.getPos());
+                AllParticles.spawnClawParticlesB(user.getWorld(), user.getPos());
             }
+            user.setVelocity(Vec3d.ZERO);
             MovementUtils.dashPlayer(user, 2);
+            if(!user.getAbilities().creativeMode) {
+                user.getItemCooldownManager().set(this, 50);
+            }
+            isDashing = true;
             user.playSound(SoundInit.CLAW_SLASH, SoundCategory.PLAYERS, 1f, 1f);
             user.swingHand(hand, true);
             HitResult hit = user.raycast(5.0D, 0.0F, false);
             if (hit.getType() == HitResult.Type.ENTITY) {
                 EntityHitResult ehr = (EntityHitResult) hit;
                 user.attack(ehr.getEntity()); // Simulate left click attack
-            }
-            user.getItemCooldownManager().set(this, 20);
-            isDashing = true; // man fuck chatgpt
-            return TypedActionResult.pass(user.getStackInHand(hand));
+            } // man fuck chatgpt
+            return TypedActionResult.success(user.getStackInHand(hand));
         }
         return super.use(world, user, hand);
     }
@@ -91,19 +97,20 @@ public class DecadenceClawsItem extends SwordItem {
                 for (int i = 0; i < 21; i++) {
                     if((playerEntity).getServer() != null) {
                         if((playerEntity).getServer().getTicks() % (2 + i) == 0) {
-                            if(DecadenceClawsItem.isDashing) {
+                            if(isDashing) {
                                 AllParticles.spawnClawParticles((playerEntity).getWorld(), (playerEntity).getPos());
+                                AllParticles.spawnClawParticlesB((playerEntity).getWorld(), (playerEntity).getPos());
                             }
                             if(i >= 20) {
-                                DecadenceClawsItem.isDashing = false;
+                                isDashing = false;
                             }
                         }
                     } else if(MinecraftClient.getInstance().world.getTime() % (2 + i) == 0) {
-                        if(DecadenceClawsItem.isDashing) {
+                        if(isDashing) {
                             AllParticles.spawnClawParticles((playerEntity).getWorld(), (playerEntity).getPos());
                         }
                         if(i >= 20) {
-                            DecadenceClawsItem.isDashing = false;
+                            isDashing = false;
                         }
                     }
                 }

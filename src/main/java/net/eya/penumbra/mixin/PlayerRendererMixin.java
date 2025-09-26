@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PlayerEntityRenderer.class)
 public class PlayerRendererMixin {
-
     private static final Identifier CUSTOM_SKIN = new Identifier("penumbra", "textures/entity/eclipse_skin.png");
 
     @Inject(method = "getTexture(Lnet/minecraft/client/network/AbstractClientPlayerEntity;)Lnet/minecraft/util/Identifier;",
@@ -23,13 +22,11 @@ public class PlayerRendererMixin {
             cir.setReturnValue(CUSTOM_SKIN);
         }
     }
-
     private boolean isWearingFullEclipseArmor(AbstractClientPlayerEntity player) {
         ItemStack helmet = player.getInventory().getArmorStack(3); // head
         ItemStack chestplate = player.getInventory().getArmorStack(2); // chest
         ItemStack leggings = player.getInventory().getArmorStack(1); // legs
         ItemStack boots = player.getInventory().getArmorStack(0); // feet
-
         return helmet.getItem() == ItemInit.ECLIPSE_HELMET &&
                 chestplate.getItem() == ItemInit.ECLIPSE_CHESTPLATE &&
                 leggings.getItem() == ItemInit.ECLIPSE_LEGGINGS &&

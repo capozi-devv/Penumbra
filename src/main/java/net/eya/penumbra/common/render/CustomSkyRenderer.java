@@ -1,4 +1,4 @@
-package net.eya.penumbra.common.util;
+package net.eya.penumbra.common.render;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.eya.penumbra.mixin.GameRendererAccessor;
@@ -6,7 +6,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.DimensionRenderingRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderContext;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.*;
-import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class CustomSkyRenderer implements DimensionRenderingRegistry.SkyRenderer {
