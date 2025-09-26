@@ -7,12 +7,13 @@
   "authors": [
     "Capozi",
     "Eyalego",
-    "Nightmare",
+    "Nightedmare",
     "CopiCraft"
   ],
   "custom": {
     "cardinal-components": [
-      "penumbra:eclipse_avatar"
+      "penumbra:eclipse_avatar",
+      "penumbra:lackey"
     ]
   },
   "contact": {},

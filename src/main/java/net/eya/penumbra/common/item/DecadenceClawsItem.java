@@ -66,7 +66,7 @@ public class DecadenceClawsItem extends SwordItem {
             HitResult hit = user.raycast(5.0D, 0.0F, false);
             if (hit.getType() == HitResult.Type.ENTITY) {
                 EntityHitResult ehr = (EntityHitResult) hit;
-                user.attack(ehr.getEntity()); // Simulate left click attack
+                user.attack(ehr.getEntity());
             } // man fuck chatgpt
             return TypedActionResult.success(user.getStackInHand(hand));
         }

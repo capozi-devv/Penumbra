@@ -73,7 +73,7 @@ public class AllParticles {
                 .setColorData(ColorParticleData.create(congruent, congruent).setCoefficient(1.4f).build())
                 .setSpinData(SpinParticleData.create(0f, 0f).build())
                 .setLifetime(40)
-                .addMotion(RandomHelper.randomBetween(Random.create(), -0.015f, 0.015f), RandomHelper.randomBetween(Random.create(), Easing.CIRC_IN, 0.5f, 1f), RandomHelper.randomBetween(Random.create(), -0.015f, 0.015f))
+                .addMotion(RandomHelper.randomBetween(Random.create(), -0.3f, 0.3f), RandomHelper.randomBetween(Random.create(), Easing.CIRC_IN, 0.5f, 1f), RandomHelper.randomBetween(Random.create(), -0.3f, 0.3f))
                 .spawn(world, pos.x, pos.y, pos.z);
     }
 }
