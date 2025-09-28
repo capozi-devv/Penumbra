@@ -10,5 +10,11 @@
     "sounds": [
       "penumbra:claw_attack"
     ]
+  },
+  "warhorn": {
+    "subtitle": "sound.penumbra.warhorn",
+    "sounds": [
+      "penumbra:warhorn"
+    ]
   }
 }

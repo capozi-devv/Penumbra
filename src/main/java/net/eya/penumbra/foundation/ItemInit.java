@@ -3,6 +3,7 @@ package net.eya.penumbra.foundation;
 import net.eya.penumbra.Penumbra;
 import net.eya.penumbra.common.item.*;
 import net.eya.penumbra.common.item.material.EclipseArmourMaterial;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterials;
@@ -28,4 +29,5 @@ public class ItemInit {
     public static final Item UMBRA_CORE = registerItem("umbra_shard", new Item(new Item.Settings().maxCount(16).fireproof()));
     public static final Item SHACKLE_PIECE = registerItem("shackle_piece", new Item(new Item.Settings().fireproof()));
     public static final Item ELDRITCH_SHACKLE = registerItem("eldritch_shackle", new EldritchShackleItem(new Item.Settings().maxCount(1).fireproof()));
+    public static final Item WARHORN = registerItem("warhorn", new WarhornItem(new Item.Settings().maxCount(1)));
 }

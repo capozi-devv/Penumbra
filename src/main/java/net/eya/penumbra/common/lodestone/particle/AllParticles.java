@@ -1,6 +1,7 @@
 package net.eya.penumbra.common.lodestone.particle;
 
 import net.eya.penumbra.foundation.ParticleInit;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
@@ -74,6 +75,18 @@ public class AllParticles {
                 .setSpinData(SpinParticleData.create(0f, 0f).build())
                 .setLifetime(40)
                 .addMotion(RandomHelper.randomBetween(Random.create(), -0.3f, 0.3f), RandomHelper.randomBetween(Random.create(), Easing.CIRC_IN, 0.5f, 1f), RandomHelper.randomBetween(Random.create(), -0.3f, 0.3f))
+                .spawn(world, pos.x, pos.y, pos.z);
+    }
+    public static void shockwaveParticles(World world, Vec3d pos) {
+        Color startColour = new Color(216, 167, 82);
+        Color endingColor = new Color(184, 131, 70);
+        WorldParticleBuilder.create(ParticleInit.SHOCKWAVE)
+                .setScaleData(GenericParticleData.create(3f, 50f).build())
+                .setTransparencyData(GenericParticleData.create(0.85f, 0.85f, 0).build())
+                .setColorData(ColorParticleData.create(startColour, endingColor).setCoefficient(1.4f).build())
+                .setSpinData(SpinParticleData.create(0f, 0f).build())
+                .setLifetime(40)
+                .enableNoClip()
                 .spawn(world, pos.x, pos.y, pos.z);
     }
 }

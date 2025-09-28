@@ -9,4 +9,5 @@ public class DamageTypeInit {
     public static void init() {}
     public static final RegistryKey<DamageType> DAGGER_DAMAGE = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier("penumbra", "dagger"));
     public static final RegistryKey<DamageType> CLAW_DAMAGE = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier("penumbra", "claw"));
+    public static final RegistryKey<DamageType> WARHORN_DAMAGE = RegistryKey.of(RegistryKeys.DAMAGE_TYPE, new Identifier("penumbra", "warhorn"));
 }

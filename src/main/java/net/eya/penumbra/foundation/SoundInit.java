@@ -14,4 +14,5 @@ public class SoundInit {
     }
     public static final SoundEvent CLAW_SLASH = registerSoundEvents("claw_slash");
     public static final SoundEvent CLAW_ATTACK = registerSoundEvents("claw_attack");
+    public static final SoundEvent WARHORN = registerSoundEvents("warhorn");
 }
