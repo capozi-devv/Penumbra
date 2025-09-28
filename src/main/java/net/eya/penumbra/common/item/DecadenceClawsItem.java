@@ -106,8 +106,8 @@ public class DecadenceClawsItem extends SwordItem {
                     if((playerEntity).getServer() != null) {
                         if((playerEntity).getServer().getTicks() % (2 + i) == 0) {
                             if(isDashing) {
-                                AllParticles.spawnClawParticles((playerEntity).getWorld(), (playerEntity).getPos());
-                                AllParticles.spawnClawParticlesB((playerEntity).getWorld(), (playerEntity).getPos());
+                                AllParticles.spawnClawParticles(world, playerEntity.getPos());
+                                AllParticles.spawnClawParticlesB(world, playerEntity.getPos());
                             }
                             if(i >= 20) {
                                 isDashing = false;
@@ -115,8 +115,8 @@ public class DecadenceClawsItem extends SwordItem {
                         }
                     } else if(MinecraftClient.getInstance().world.getTime() % (2 + i) == 0) {
                         if(isDashing) {
-                            AllParticles.spawnClawParticles((playerEntity).getWorld(), (playerEntity).getPos());
-                            AllParticles.spawnClawParticlesB((playerEntity).getWorld(), (playerEntity).getPos());
+                            AllParticles.spawnClawParticles(world, playerEntity.getPos());
+                            AllParticles.spawnClawParticlesB(world, playerEntity.getPos());
                         }
                         if(i >= 20) {
                             isDashing = false;

@@ -13,9 +13,11 @@ public class ParticleInit {
     public static LazyRegistrar<ParticleType<?>> PARTICLES = LazyRegistrar.create(Registries.PARTICLE_TYPE, Penumbra.MOD_ID);
     public static RegistryObject<LodestoneWorldParticleType> GOLDEN_SPARK = PARTICLES.register("golden_spark", LodestoneWorldParticleType::new);
     public static RegistryObject<LodestoneWorldParticleType> GOLDEN_STAR = PARTICLES.register("golden_star", LodestoneWorldParticleType::new);
+    public static RegistryObject<LodestoneWorldParticleType> SHOCKWAVE = PARTICLES.register("shockwave", LodestoneWorldParticleType::new);
 
     public static void registerParticleFactory() {
         ParticleFactoryRegistry.getInstance().register(GOLDEN_SPARK.get(), LodestoneWorldParticleType.Factory::new);
         ParticleFactoryRegistry.getInstance().register(GOLDEN_STAR.get(), LodestoneWorldParticleType.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(SHOCKWAVE.get(), LodestoneWorldParticleType.Factory::new);
     }
 }
