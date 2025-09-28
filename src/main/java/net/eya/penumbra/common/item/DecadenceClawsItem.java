@@ -113,13 +113,16 @@ public class DecadenceClawsItem extends SwordItem {
                                 isDashing = false;
                             }
                         }
-                    } else if(MinecraftClient.getInstance().world.getTime() % (2 + i) == 0) {
-                        if(isDashing) {
-                            AllParticles.spawnClawParticles(world, playerEntity.getPos());
-                            AllParticles.spawnClawParticlesB(world, playerEntity.getPos());
-                        }
-                        if(i >= 20) {
-                            isDashing = false;
+                    } else {
+                        assert MinecraftClient.getInstance().world != null;
+                        if(MinecraftClient.getInstance().world.getTime() % (2 + i) == 0) {
+                            if(isDashing) {
+                                AllParticles.spawnClawParticles(world, playerEntity.getPos());
+                                AllParticles.spawnClawParticlesB(world, playerEntity.getPos());
+                            }
+                            if(i >= 20) {
+                                isDashing = false;
+                            }
                         }
                     }
                 }
