@@ -13,9 +13,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class WarhornItem extends Item {
-    public WarhornItem(Settings settings) {
-        super(settings);
+public class WarhornItem extends GoatHornItem {
+    public WarhornItem(Settings settings, TagKey<Instrument> instrumentTag) {
+        super(settings, instrumentTag);
     }
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {

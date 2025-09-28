@@ -9,6 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.tag.InstrumentTags;
 import net.minecraft.util.Identifier;
 
 import java.util.UUID;
@@ -29,5 +30,5 @@ public class ItemInit {
     public static final Item UMBRA_CORE = registerItem("umbra_shard", new Item(new Item.Settings().maxCount(16).fireproof()));
     public static final Item SHACKLE_PIECE = registerItem("shackle_piece", new Item(new Item.Settings().fireproof()));
     public static final Item ELDRITCH_SHACKLE = registerItem("eldritch_shackle", new EldritchShackleItem(new Item.Settings().maxCount(1).fireproof()));
-    public static final Item WARHORN = registerItem("warhorn", new WarhornItem(new Item.Settings().maxCount(1)));
+    public static final Item WARHORN = registerItem("warhorn", new WarhornItem(new Item.Settings().maxCount(1), InstrumentTags.GOAT_HORNS));
 }
