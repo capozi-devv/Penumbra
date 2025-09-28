@@ -7,7 +7,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 public class LackeyComponentImplementation implements LackeyComponent {
     private boolean isLackey = false;
     @Override
-    public boolean isLackey(ServerPlayerEntity player) {
+    public boolean isLackey(PlayerEntity player) {
         return isLackey;
     }
     @Override

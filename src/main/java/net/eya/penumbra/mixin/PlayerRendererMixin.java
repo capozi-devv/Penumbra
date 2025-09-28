@@ -28,11 +28,11 @@ public class PlayerRendererMixin {
         LackeyComponent lackeyComponent = Penumbra.getLackey().get((PlayerEntity)player);
         EclipseAvatarComponent eclipseAvatarComponent = Penumbra.getEclipseAvatar().get((PlayerEntity)player);
         PlayerEntity target = (PlayerEntity)player;
-        if(isWearingFullEclipseArmor(player) || eclipseAvatarComponent.isAvatar((ServerPlayerEntity)target)) {
+        if(isWearingFullEclipseArmor(player)) {
             cir.setReturnValue(CUSTOM_SKIN);
             lackeyActive = true;
         }
-        if(lackeyComponent.isLackey((ServerPlayerEntity)target) && lackeyActive) {
+        if(lackeyComponent.isLackey(target) && lackeyActive) {
             cir.setReturnValue(CUSTOM_LACKEY_SKIN);
         }
 

@@ -1,10 +1,7 @@
 package net.eya.penumbra.foundation;
 
 import net.eya.penumbra.Penumbra;
-import net.eya.penumbra.common.item.DecadenceClawsItem;
-import net.eya.penumbra.common.item.RitualDaggerItem;
-import net.eya.penumbra.common.item.ServitudeTokenItem;
-import net.eya.penumbra.common.item.TestItem;
+import net.eya.penumbra.common.item.*;
 import net.eya.penumbra.common.item.material.EclipseArmourMaterial;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
@@ -28,4 +25,7 @@ public class ItemInit {
     public static final Item ECLIPSE_BOOTS = registerItem("eclipse_boots", new ArmorItem(EclipseArmourMaterial.ECLIPSE_ARMOUR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings()));
     public static final Item TEST_ITEM = registerItem("test", new TestItem(new Item.Settings()));
     public static final Item SERVITUDE_TOKEN = registerItem("token_of_servitude", new ServitudeTokenItem(new Item.Settings().maxCount(1)));
+    public static final Item UMBRA_CORE = registerItem("umbra_shard", new Item(new Item.Settings().maxCount(16).fireproof()));
+    public static final Item SHACKLE_PIECE = registerItem("shackle_piece", new Item(new Item.Settings().fireproof()));
+    public static final Item ELDRITCH_SHACKLE = registerItem("eldritch_shackle", new EldritchShackleItem(new Item.Settings().maxCount(1).fireproof()));
 }

@@ -32,6 +32,9 @@
     ],
     "cardinal-components-entity": [
       "net.eya.penumbra.PenumbraComponents"
+    ],
+    "emi": [
+      "net.eya.penumbra.common.datagen.EMIPlugin"
     ]
   },
   "mixins": [

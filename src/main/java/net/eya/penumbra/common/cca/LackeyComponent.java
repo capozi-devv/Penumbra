@@ -5,6 +5,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 
 public interface LackeyComponent extends Component {
-    boolean isLackey(ServerPlayerEntity player);
+    boolean isLackey(PlayerEntity player);
     void setLackey(boolean value);
 }
