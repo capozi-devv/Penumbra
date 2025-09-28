@@ -1,47 +1,73 @@
 package net.eya.penumbra.common.item.material;
 
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.*;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Lazy;
+import net.minecraft.util.StringIdentifiable;
+import net.minecraft.util.Util;
 
-public class EclipseArmourMaterial implements ArmorMaterial {
-    public static final EclipseArmourMaterial INSTANCE = new EclipseArmourMaterial();
-    @Override
+import java.util.EnumMap;
+import java.util.function.Supplier;
+
+public enum EclipseArmourMaterial implements ArmorMaterial, StringIdentifiable {
+    ECLIPSE_ARMOUR_MATERIAL("eclipse", 37, (EnumMap)Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.LEGGINGS, 7);
+        map.put(ArmorItem.Type.CHESTPLATE, 9);
+        map.put(ArmorItem.Type.HELMET, 4);
+    }), 15, SoundEvents.ENTITY_WITHER_SPAWN, 3.0F, 0.1F, () -> Ingredient.ofItems(new ItemConvertible[]{Items.NETHERITE_INGOT}));
+    public static final StringIdentifiable.Codec<EclipseArmourMaterial> CODEC = StringIdentifiable.createCodec(EclipseArmourMaterial::values);
+    private static final EnumMap<ArmorItem.Type, Integer> BASE_DURABILITY = (EnumMap)Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {
+        map.put(ArmorItem.Type.BOOTS, 13);
+        map.put(ArmorItem.Type.LEGGINGS, 15);
+        map.put(ArmorItem.Type.CHESTPLATE, 16);
+        map.put(ArmorItem.Type.HELMET, 11);
+    });
+    private final String name;
+    private final int durabilityMultiplier;
+    private final EnumMap<ArmorItem.Type, Integer> protectionAmounts;
+    private final int enchantability;
+    private final SoundEvent equipSound;
+    private final float toughness;
+    private final float knockbackResistance;
+    private final Lazy<Ingredient> repairIngredientSupplier;
+    private EclipseArmourMaterial(String name, int durabilityMultiplier, EnumMap<ArmorItem.Type, Integer> protectionAmounts, int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier) {
+        this.name = name;
+        this.durabilityMultiplier = durabilityMultiplier;
+        this.protectionAmounts = protectionAmounts;
+        this.enchantability = enchantability;
+        this.equipSound = equipSound;
+        this.toughness = toughness;
+        this.knockbackResistance = knockbackResistance;
+        this.repairIngredientSupplier = new Lazy(repairIngredientSupplier);
+    }
     public int getDurability(ArmorItem.Type type) {
-        return Integer.MAX_VALUE;
+        return (Integer)BASE_DURABILITY.get(type) * this.durabilityMultiplier;
     }
-    @Override
     public int getProtection(ArmorItem.Type type) {
-        return switch (type) {
-            case HELMET -> 4;
-            case CHESTPLATE -> 9;
-            case LEGGINGS -> 7;
-            case BOOTS -> 3;
-        };
+        return (Integer)this.protectionAmounts.get(type);
     }
-    @Override
     public int getEnchantability() {
-        return 0;
+        return this.enchantability;
     }
-    @Override
     public SoundEvent getEquipSound() {
-        return null;
+        return this.equipSound;
     }
-    @Override
     public Ingredient getRepairIngredient() {
-        return null;
+        return (Ingredient)this.repairIngredientSupplier.get();
     }
-    @Override
     public String getName() {
-        return "eclipse_material";
+        return this.name;
     }
-    @Override
     public float getToughness() {
-        return 3;
+        return this.toughness;
     }
-    @Override
     public float getKnockbackResistance() {
-        return 0;
+        return this.knockbackResistance;
+    }
+    public String asString() {
+        return this.name;
     }
 }

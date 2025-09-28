@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "E": {
+      "item": "penumbra:shackle_piece"
+    },
+    "U": {
+      "item": "penumbra:umbra_core"
+    }
+  },
+  "pattern": [
+    "EEE",
+    "EUE",
+    "EEE"
+  ],
+  "result": {
+    "item": "penumbra:eldritch_shackle"
+  },
+  "show_notification": true
+}

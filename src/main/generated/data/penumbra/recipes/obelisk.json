@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "S": {
+      "tag": "minecraft:soul_fire_base_blocks"
+    },
+    "U": {
+      "item": "penumbra:umbra_core"
+    }
+  },
+  "pattern": [
+    "SNS",
+    "GUG",
+    "NGN"
+  ],
+  "result": {
+    "item": "penumbra:obelisk"
+  },
+  "show_notification": true
+}

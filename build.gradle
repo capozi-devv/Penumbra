@@ -41,6 +41,9 @@ dependencies {
     modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}")
     modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-world:${project.cca_version}")
 
+    modCompileOnly "dev.emi:emi-fabric:${emi_version}:api"
+    modLocalRuntime "dev.emi:emi-fabric:${emi_version}"
+
     modImplementation("dev.emi:trinkets:${project.trinkets_version}")
     for (String module in port_lib_modules.split(",")) {
         modImplementation("io.github.fabricators_of_create.Porting-Lib:$module:$port_lib_version")
@@ -61,6 +64,36 @@ processResources {
         expand "version": project.version,
                 "minecraft_version": project.minecraft_version,
                 "loader_version": project.loader_version
+    }
+}
+
+loom {
+    runs {
+        datagen {
+            client() // or server(), either works
+            name "Data Generation"
+
+            // Enable Fabric datagen
+            vmArg "-Dfabric-api.datagen"
+
+            // Where generated resources will be written
+            vmArg "-Dfabric-api.datagen.output-dir=${projectDir}/src/generated/resources"
+
+            // 👇 THIS IS IMPORTANT — note vmArg, *not* program args
+            vmArg "-Dporting_lib.datagen.existing_resources=${projectDir}/src/main/resources"
+
+            // Optional: make sure it doesn’t try to launch the game
+            runDir "src/main/generated"
+        }
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            // Include generated resources so Minecraft can find them
+            srcDir 'src/generated/resources'
+        }
     }
 }
 
