@@ -52,19 +52,16 @@ public class EclipseObeliskBlock extends Block {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(world.isClient()) {
-            if(player.getStackInHand(hand).getItem() instanceof ServitudeTokenItem) {
-//                Color color = new Color(248, 209, 109);
-//                MinecraftClient client = MinecraftClient.getInstance();
-//                Camera camera = client.gameRenderer.getCamera();
-//                Vec3d camPos = camera.getPos();
-//                MatrixStack matrices = new MatrixStack();
-//                matrices.translate(-camPos.x, -camPos.y, -camPos.z);
-//                Matrix4f matrix4f = matrices.peek().getPositionMatrix();
-//                if(world.isClient()) {
-//                    VFXBuilders.createWorld().setRenderTypeRaw(RenderLayer.getTranslucent()).setFormatRaw(VertexFormats.POSITION_COLOR).setColor(color).renderBeam(matrix4f, Vec3d.of(pos), Vec3d.of(pos).add(0d, 30d, 0f), 3f);
-//                }
+                Color color = new Color(248, 209, 109);
+                MinecraftClient client = MinecraftClient.getInstance();
+                Camera camera = client.gameRenderer.getCamera();
+                Vec3d camPos = camera.getPos();
+                MatrixStack matrices = new MatrixStack();
+                matrices.translate(-camPos.x, -camPos.y, -camPos.z);
+                Matrix4f matrix4f = matrices.peek().getPositionMatrix();
+                VFXBuilders.WorldVFXBuilder builder = VFXBuilders.createWorld().setRenderTypeRaw(RenderLayer.getTranslucent()).setFormatRaw(VertexFormats.POSITION_COLOR).setColor(color);
+                builder.renderBeam(matrix4f, Vec3d.of(pos), Vec3d.of(pos).add(0d, 30d, 0f), 3f, camPos);
                 return ActionResult.SUCCESS;
-            }
         }
         return ActionResult.FAIL;
     }

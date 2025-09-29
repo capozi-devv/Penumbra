@@ -35,7 +35,6 @@ public class PlayerRendererMixin {
         if(lackeyComponent.isLackey(target) && lackeyActive) {
             cir.setReturnValue(CUSTOM_LACKEY_SKIN);
         }
-
     }
     private boolean isWearingFullEclipseArmor(AbstractClientPlayerEntity player) {
         ItemStack helmet = player.getInventory().getArmorStack(3); // head
