@@ -8,7 +8,10 @@
     "BipedEntityModelInvoker",
     "GameRendererAccessor",
     "PlayerRendererMixin",
-    "ItemMixin"
+    "ItemMixin",
+    "ItemRendererAccessor",
+    "ItemRendererMixin",
+    "ModelLoaderMixin"
   ],
   "client": [
     "ClawRenderMixin",

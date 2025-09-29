@@ -12,6 +12,8 @@ import team.lodestar.lodestone.systems.particle.builder.WorldParticleBuilder;
 import team.lodestar.lodestone.systems.particle.data.GenericParticleData;
 import team.lodestar.lodestone.systems.particle.data.color.ColorParticleData;
 import team.lodestar.lodestone.systems.particle.data.spin.SpinParticleData;
+import team.lodestar.lodestone.systems.particle.world.behaviors.components.DirectionalBehaviorComponent;
+import team.lodestar.lodestone.systems.particle.world.behaviors.components.LodestoneBehaviorComponent;
 
 import java.awt.*;
 
@@ -55,8 +57,8 @@ public class AllParticles {
                 .spawn(world, pos.x, pos.y, pos.z);
     }
     public static void obeliskParticles(World level, Vec3d pos) {
-        Color startingColor = new Color(216, 167, 82);
-        Color endingColor = new Color(184, 131, 70);
+        Color startingColor = new Color(255, 240, 154);
+        Color endingColor = new Color(216, 167, 82);
         WorldParticleBuilder.create(ParticleInit.GOLDEN_SPARK)
                 .setScaleData(GenericParticleData.create(0.2f, 0).setEasing(Easing.EXPO_IN).build())
                 .setTransparencyData(GenericParticleData.create(0.75f, 0.25f).build())
@@ -81,12 +83,13 @@ public class AllParticles {
         Color startColour = new Color(216, 167, 82);
         Color endingColor = new Color(184, 131, 70);
         WorldParticleBuilder.create(ParticleInit.SHOCKWAVE)
-                .setScaleData(GenericParticleData.create(3f, 50f).build())
+                .setScaleData(GenericParticleData.create(1f, 20f).build())
                 .setTransparencyData(GenericParticleData.create(0.85f, 0.85f, 0).build())
                 .setColorData(ColorParticleData.create(startColour, endingColor).setCoefficient(1.4f).build())
                 .setSpinData(SpinParticleData.create(0f, 0f).build())
-                .setLifetime(40)
+                .setLifetime(80)
                 .enableNoClip()
+                .setBehavior(new DirectionalBehaviorComponent(new Vec3d(0, 90, 0)))
                 .spawn(world, pos.x, pos.y, pos.z);
     }
 }
