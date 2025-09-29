@@ -10,5 +10,6 @@
   "sound.penumbra.warhorn": "Warhorn Blares",
   "death.attack.dagger": "%1$s attempted to bring about The Eclipse to aggressively",
   "death.attack.claw": "%1$s was shredded by %2$s",
+  "death.attack.warhorn": "%1$s was blasted away",
   "death.attack.claw.item": "%1$s was shredded by %2$s wielding %3$s"
 }

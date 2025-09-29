@@ -6,7 +6,9 @@ import net.eya.penumbra.common.lodestone.particle.AllParticles;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemUsageContext;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -15,14 +17,13 @@ public class TestItem extends Item {
     public TestItem(Settings settings) {
         super(settings);
     }
+
     @Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        if(user != null) {
-            AllParticles.shockwaveParticles(world, user.getPos());
-            return TypedActionResult.success(user.getStackInHand(hand), false);
-        }
-        return super.use(world, user, hand);
+    public ActionResult useOnBlock(ItemUsageContext context) {
+        AllParticles.bloomParticle(context.getWorld(), context.getHitPos());
+        return ActionResult.success(true);
     }
+
     @Override
     public boolean hasGlint(ItemStack stack) {
         return true;

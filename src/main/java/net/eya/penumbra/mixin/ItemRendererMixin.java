@@ -8,6 +8,7 @@ import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
@@ -20,17 +21,6 @@ public abstract class ItemRendererMixin {
     public BakedModel useModel(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         if (stack.isOf(ItemInit.DECADENCE_CLAWS) && renderMode == ModelTransformationMode.GUI) {
             return ((ItemRendererAccessor) this).renderer$getModels().getModelManager().getModel(new ModelIdentifier(Penumbra.MOD_ID, "claws_of_decadence_icon", "inventory"));
-        }
-        if (stack.isOf(ItemInit.WARHORN) && renderMode != ModelTransformationMode.GUI) {
-            if (stack.getHolder() instanceof PlayerEntity player) {
-                if (player.isUsingItem()) {
-                    return ((ItemRendererAccessor) this).renderer$getModels().getModelManager().getModel(new ModelIdentifier(Penumbra.MOD_ID, "warhorn_tooting", "inventory"));
-                } else {
-                    return ((ItemRendererAccessor) this).renderer$getModels().getModelManager().getModel(new ModelIdentifier(Penumbra.MOD_ID, "warhorn_handheld", "inventory"));
-                }
-            } else {
-                return ((ItemRendererAccessor) this).renderer$getModels().getModelManager().getModel(new ModelIdentifier(Penumbra.MOD_ID, "warhorn_handheld", "inventory"));
-            }
         }
         return value;
     }

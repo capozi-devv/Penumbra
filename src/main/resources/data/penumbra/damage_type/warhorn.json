@@ -1,0 +1,10 @@
+{
+  "exhaustion": 0.1,
+  "message_id": "warhorn",
+  "scaling": "when_caused_by_living_non_player",
+  "effects": {
+    "bypasses_armor": true,
+    "unblockable": true,
+    "magic": true
+  }
+}

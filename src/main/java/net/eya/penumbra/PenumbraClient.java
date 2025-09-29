@@ -6,12 +6,14 @@ import net.eya.penumbra.common.render.EclipseWings;
 import net.eya.penumbra.common.render.HornsFeatureRenderer;
 import net.eya.penumbra.common.render.WingsFeatureRenderer;
 import net.eya.penumbra.foundation.BlockInit;
+import net.eya.penumbra.foundation.ItemInit;
 import net.eya.penumbra.foundation.ParticleInit;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
@@ -54,5 +56,17 @@ public class PenumbraClient implements ClientModInitializer {
             SkyboxCommands.register(dispatcher);
         });
         ParticleInit.registerParticleFactory();
+
+        ModelPredicateProviderRegistry.register(
+                ItemInit.WARHORN,
+                new Identifier("tooting"),
+                (stack, world, entity, seed) -> {
+                    if (entity == null) return 0.0F;
+                    if (entity.isUsingItem() && entity.getActiveItem() == stack) {
+                        return 1.0F;
+                    }
+                    return 0.0F;
+                }
+        );
     }
 }

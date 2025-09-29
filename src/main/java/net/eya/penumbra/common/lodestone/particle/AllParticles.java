@@ -1,10 +1,14 @@
 package net.eya.penumbra.common.lodestone.particle;
 
 import net.eya.penumbra.foundation.ParticleInit;
+import net.minecraft.client.particle.BillboardParticle;
+import net.minecraft.entity.decoration.DisplayEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
+import team.lodestar.lodestone.helpers.EasingHelper;
 import team.lodestar.lodestone.helpers.RandomHelper;
 import team.lodestar.lodestone.registry.common.particle.LodestoneParticleRegistry;
 import team.lodestar.lodestone.systems.easing.Easing;
@@ -12,7 +16,9 @@ import team.lodestar.lodestone.systems.particle.builder.WorldParticleBuilder;
 import team.lodestar.lodestone.systems.particle.data.GenericParticleData;
 import team.lodestar.lodestone.systems.particle.data.color.ColorParticleData;
 import team.lodestar.lodestone.systems.particle.data.spin.SpinParticleData;
+import team.lodestar.lodestone.systems.particle.world.behaviors.BillboardParticleBehavior;
 import team.lodestar.lodestone.systems.particle.world.behaviors.components.DirectionalBehaviorComponent;
+import team.lodestar.lodestone.systems.particle.world.behaviors.components.ExtrudingSparkBehaviorComponent;
 import team.lodestar.lodestone.systems.particle.world.behaviors.components.LodestoneBehaviorComponent;
 
 import java.awt.*;
@@ -83,13 +89,26 @@ public class AllParticles {
         Color startColour = new Color(216, 167, 82);
         Color endingColor = new Color(184, 131, 70);
         WorldParticleBuilder.create(ParticleInit.SHOCKWAVE)
-                .setScaleData(GenericParticleData.create(1f, 20f).build())
+                .setScaleData(GenericParticleData.create(1f, 10, 15f).build())
                 .setTransparencyData(GenericParticleData.create(0.85f, 0.85f, 0).build())
                 .setColorData(ColorParticleData.create(startColour, endingColor).setCoefficient(1.4f).build())
                 .setSpinData(SpinParticleData.create(0f, 0f).build())
-                .setLifetime(80)
+                .setLifetime(40)
                 .enableNoClip()
                 .setBehavior(new DirectionalBehaviorComponent(new Vec3d(0, 90, 0)))
+                .spawn(world, pos.x, pos.y, pos.z);
+    }
+    public static void bloomParticle(World world, Vec3d pos) {
+        Color startColour = new Color(248, 209, 109);
+        Color endingColor = new Color(216, 167, 82);
+        WorldParticleBuilder.create(LodestoneParticleRegistry.WISP_PARTICLE)
+                .setScaleData(GenericParticleData.create(6f).build())
+                .setTransparencyData(GenericParticleData.create(0.85f, 0.85f, 0).build())
+                .setColorData(ColorParticleData.create(startColour, endingColor).setCoefficient(1.4f).build())
+                .setSpinData(SpinParticleData.create(0f, 0f).build())
+                .setLifetime(100)
+                .enableNoClip()
+                .setBehavior(LodestoneBehaviorComponent.EXTRUDING_SPARK)
                 .spawn(world, pos.x, pos.y, pos.z);
     }
 }
