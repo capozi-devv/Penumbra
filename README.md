@@ -4,6 +4,7 @@ IMMA JUST HAVE THE WHOLE CONCEPT HERE:
 - eclipse idol: when 3 players bind themselves to the idol makes the next person who clicks on it achieve avatar of the eclipse transformation. also makes all bound players become lackeys.
 - Sacrificial Daggers: when used on an eclipse idol removes two hearts of maximum hp from the user and binds them to the idol.
 - Eldritch Shackle: when used binds the eclipse avatar with golden chains on their arms and legs, while bound the eclipse avatar cannot move and their attack damage is slowed down by 80% crafted with eight shackle shards (i'll do a scavenger hunt for these)
+- Warhorn: Creates a sound blast that knocks back players and damages them if they are within range.
 - **Eclipse Avatar:**
 - the eclipse: during the eclipse avatar's transformation the sky is replaced with one with an eclipsed sun and golden stars.
 - general changes: the eclipse avatar has 30 hearts however it cannot eat or regenerate from food. instead it heals from it's weapons and abilities.
