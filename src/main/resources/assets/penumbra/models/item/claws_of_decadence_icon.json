@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "penumbra:item/decadence_claws_icon"
-  }
-}

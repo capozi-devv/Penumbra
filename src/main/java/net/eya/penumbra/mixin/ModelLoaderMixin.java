@@ -20,7 +20,7 @@ public abstract class ModelLoaderMixin {
 
     @Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/model/ModelLoader;addModel(Lnet/minecraft/client/util/ModelIdentifier;)V", ordinal = 3, shift = At.Shift.AFTER))
     public void addModels(BlockColors blockColors, Profiler profiler, Map jsonUnbakedModels, Map blockStates, CallbackInfo ci) {
-        this.addModel(new ModelIdentifier(Penumbra.MOD_ID, "claws_of_decadence_icon", "inventory"));
+        this.addModel(new ModelIdentifier(Penumbra.MOD_ID, "claws_of_decadence_held", "inventory"));
         this.addModel(new ModelIdentifier(Penumbra.MOD_ID, "warhorn_handheld", "inventory"));
         this.addModel(new ModelIdentifier(Penumbra.MOD_ID, "warhorn_tooting", "inventory"));
     }
