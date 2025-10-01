@@ -17,13 +17,11 @@ public class TestItem extends Item {
     public TestItem(Settings settings) {
         super(settings);
     }
-
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         AllParticles.bloomParticle(context.getWorld(), context.getHitPos());
         return ActionResult.success(true);
     }
-
     @Override
     public boolean hasGlint(ItemStack stack) {
         return true;

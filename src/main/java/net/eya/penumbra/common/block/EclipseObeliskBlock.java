@@ -47,7 +47,7 @@ public class EclipseObeliskBlock extends Block {
     public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
         super.randomDisplayTick(state, world, pos, random);
         if(world.isClient()) {
-                AllParticles.obeliskParticles(world, Vec3d.ofCenter(pos));
+            AllParticles.obeliskParticles(world, Vec3d.ofCenter(pos));
         }
     }
     @Override
