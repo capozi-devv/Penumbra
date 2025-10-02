@@ -37,7 +37,7 @@ public class WarhornItem extends GoatHornItem {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(world != null) {
-            DamageSource source = new DamageSource(world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(DamageTypeInit.DAGGER_DAMAGE));
+            DamageSource source = new DamageSource(world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(DamageTypeInit.WARHORN_DAMAGE));
             AllParticles.shockwaveParticles(world, user.getPos().offset(Direction.UP, 1));
             ScreenshakeHandler.addScreenshake(new PositionedScreenshakeInstance(15, user.getPos(), 5, 5).setIntensity(10));
             user.getItemCooldownManager().set(ItemInit.WARHORN, 100);

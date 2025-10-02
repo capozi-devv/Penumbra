@@ -53,7 +53,6 @@ public class EclipseObeliskBlock extends Block {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(world.isClient()) {
-            AllVFX.obeliskBeam(pos);
             return ActionResult.SUCCESS;
         }
         return ActionResult.FAIL;
