@@ -14,7 +14,7 @@
   "warhorn": {
     "subtitle": "sound.penumbra.warhorn",
     "sounds": [
-      "penumbra:warhorn"
+      { "name": "penumbra:warhorn", "stream": true }
     ]
   }
 }

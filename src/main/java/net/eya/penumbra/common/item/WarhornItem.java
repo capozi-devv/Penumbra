@@ -2,6 +2,7 @@ package net.eya.penumbra.common.item;
 
 import net.eya.penumbra.common.lodestone.particle.AllParticles;
 import net.eya.penumbra.foundation.DamageTypeInit;
+import net.eya.penumbra.foundation.InstrumentInit;
 import net.eya.penumbra.foundation.ItemInit;
 import net.eya.penumbra.foundation.SoundInit;
 import net.minecraft.client.gui.screen.Screen;
@@ -39,8 +40,9 @@ public class WarhornItem extends GoatHornItem {
         if(world != null) {
             DamageSource source = new DamageSource(world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(DamageTypeInit.WARHORN_DAMAGE));
             AllParticles.shockwaveParticles(world, user.getPos().offset(Direction.UP, 1));
-            ScreenshakeHandler.addScreenshake(new PositionedScreenshakeInstance(15, user.getPos(), 5, 5).setIntensity(10));
-            user.getItemCooldownManager().set(ItemInit.WARHORN, 100);
+            ScreenshakeHandler.addScreenshake(new PositionedScreenshakeInstance(15, user.getPos(), 5, 5).setIntensity(7));
+            playSound(world, user, InstrumentInit.WARHORN);
+            user.getItemCooldownManager().set(ItemInit.WARHORN, 1000);
             Vec3d center = user.getPos();
             double radius = 8.0;
             Box box = new Box(
