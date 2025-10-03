@@ -2,6 +2,7 @@ package net.eya.penumbra.foundation;
 
 import net.eya.penumbra.Penumbra;
 import net.eya.penumbra.common.effect.NecrosisEffect;
+
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.registry.Registries;

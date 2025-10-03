@@ -2,6 +2,7 @@ package net.eya.penumbra.common.datagen;
 
 import net.eya.penumbra.foundation.BlockInit;
 import net.eya.penumbra.foundation.ItemInit;
+
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;

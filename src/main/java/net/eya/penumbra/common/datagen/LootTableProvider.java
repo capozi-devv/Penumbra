@@ -1,6 +1,7 @@
 package net.eya.penumbra.common.datagen;
 
 import net.eya.penumbra.foundation.BlockInit;
+
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 

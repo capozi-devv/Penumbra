@@ -3,8 +3,8 @@ package net.eya.penumbra.common.datagen;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.stack.EmiStack;
+
 import net.eya.penumbra.foundation.BlockInit;
-import net.eya.penumbra.foundation.ItemInit;
 
 public class EMIPlugin implements EmiPlugin {
     @Override

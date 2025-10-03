@@ -3,17 +3,14 @@ package net.eya.penumbra.foundation;
 import net.eya.penumbra.Penumbra;
 import net.eya.penumbra.common.item.*;
 import net.eya.penumbra.common.item.material.EclipseArmourMaterial;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ToolMaterials;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.registry.tag.InstrumentTags;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-
-import java.util.UUID;
 
 public class ItemInit {
     public static void init() {}

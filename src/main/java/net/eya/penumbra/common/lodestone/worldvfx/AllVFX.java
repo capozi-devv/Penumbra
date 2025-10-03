@@ -9,7 +9,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix4f;
-import team.lodestar.lodestone.systems.easing.Easing;
+
 import team.lodestar.lodestone.systems.rendering.VFXBuilders;
 
 import java.awt.*;
@@ -29,7 +29,7 @@ public class AllVFX {
         float alpha = intensity / 60f;
         VFXBuilders.WorldVFXBuilder builder = VFXBuilders.createWorld()
                 .setColor(color)
-                .setFormatRaw(VertexFormats.POSITION_COLOR_TEXTURE_LIGHT_NORMAL)
+                .setFormatRaw(VertexFormats.POSITION_COLOR)
                 .setRenderType(RenderLayer.getTranslucent())
                 .setVertexConsumer(vertexConsumer)
                 .setAlpha(alpha);

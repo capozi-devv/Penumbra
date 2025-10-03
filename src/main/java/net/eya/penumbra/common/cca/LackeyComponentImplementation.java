@@ -2,7 +2,6 @@ package net.eya.penumbra.common.cca;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.server.network.ServerPlayerEntity;
 
 public class LackeyComponentImplementation implements LackeyComponent {
     private boolean isLackey = false;

@@ -4,10 +4,12 @@ import dev.onyxstudios.cca.api.v3.component.ComponentRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentFactoryRegistry;
 import dev.onyxstudios.cca.api.v3.entity.EntityComponentInitializer;
 import dev.onyxstudios.cca.api.v3.entity.RespawnCopyStrategy;
+
 import net.eya.penumbra.common.cca.EclipseAvatarComponent;
 import net.eya.penumbra.common.cca.EclipseAvatarComponentImplementation;
 import net.eya.penumbra.common.cca.LackeyComponent;
 import net.eya.penumbra.common.cca.LackeyComponentImplementation;
+
 import net.minecraft.util.Identifier;
 
 public class PenumbraComponents implements EntityComponentInitializer {

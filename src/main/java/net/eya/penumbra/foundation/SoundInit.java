@@ -1,6 +1,7 @@
 package net.eya.penumbra.foundation;
 
 import net.eya.penumbra.Penumbra;
+
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;

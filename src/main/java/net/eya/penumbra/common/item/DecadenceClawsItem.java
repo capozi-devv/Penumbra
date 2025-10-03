@@ -6,6 +6,7 @@ import net.eya.penumbra.common.util.MovementUtils;
 import net.eya.penumbra.foundation.DamageTypeInit;
 import net.eya.penumbra.foundation.EffectInit;
 import net.eya.penumbra.foundation.SoundInit;
+
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -30,7 +31,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-
 public class DecadenceClawsItem extends SwordItem {
     public DecadenceClawsItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
@@ -52,7 +52,7 @@ public class DecadenceClawsItem extends SwordItem {
                     return TypedActionResult.pass(user.getStackInHand(hand));
                 }
             }
-            user.getItemCooldownManager().set(this, 160);
+            user.getItemCooldownManager().set(this, 1000);
         } else {
             for (int i = 0; i < times; i++) {
                 AllParticles.spawnClawParticles(user.getWorld(), user.getPos());

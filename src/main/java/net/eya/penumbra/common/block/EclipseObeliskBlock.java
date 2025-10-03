@@ -2,6 +2,7 @@ package net.eya.penumbra.common.block;
 
 import net.eya.penumbra.common.lodestone.particle.AllParticles;
 import net.eya.penumbra.common.lodestone.worldvfx.AllVFX;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;

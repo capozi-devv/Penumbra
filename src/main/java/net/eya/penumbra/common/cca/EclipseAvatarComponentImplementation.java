@@ -1,7 +1,7 @@
 package net.eya.penumbra.common.cca;
 
 import net.eya.penumbra.common.util.HealthUtils;
-import net.eya.penumbra.foundation.EffectInit;
+
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;

@@ -1,21 +1,15 @@
 package net.eya.penumbra.common.item;
 
-import net.eya.penumbra.Penumbra;
 import net.eya.penumbra.common.util.HealthUtils;
 import net.eya.penumbra.foundation.DamageTypeInit;
 import net.eya.penumbra.foundation.ItemInit;
+
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.damage.DamageSources;
-import net.minecraft.entity.damage.DamageType;
-import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;

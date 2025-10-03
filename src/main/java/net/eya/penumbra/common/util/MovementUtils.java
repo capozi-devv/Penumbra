@@ -1,6 +1,7 @@
 package net.eya.penumbra.common.util;
 
 import net.eya.penumbra.common.lodestone.particle.AllParticles;
+
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Vec3d;
 

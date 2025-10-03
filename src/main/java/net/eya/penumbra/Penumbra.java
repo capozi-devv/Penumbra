@@ -1,10 +1,13 @@
 package net.eya.penumbra;
 
 import dev.onyxstudios.cca.api.v3.component.ComponentKey;
+
 import net.eya.penumbra.common.cca.EclipseAvatarComponent;
 import net.eya.penumbra.common.cca.LackeyComponent;
 import net.eya.penumbra.foundation.*;
+
 import net.fabricmc.api.ModInitializer;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

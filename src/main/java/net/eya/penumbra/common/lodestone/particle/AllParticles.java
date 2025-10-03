@@ -1,14 +1,11 @@
 package net.eya.penumbra.common.lodestone.particle;
 
 import net.eya.penumbra.foundation.ParticleInit;
-import net.minecraft.client.particle.BillboardParticle;
-import net.minecraft.entity.decoration.DisplayEntity;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.Direction;
+
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
-import team.lodestar.lodestone.helpers.EasingHelper;
+
 import team.lodestar.lodestone.helpers.RandomHelper;
 import team.lodestar.lodestone.registry.common.particle.LodestoneParticleRegistry;
 import team.lodestar.lodestone.systems.easing.Easing;
@@ -16,9 +13,7 @@ import team.lodestar.lodestone.systems.particle.builder.WorldParticleBuilder;
 import team.lodestar.lodestone.systems.particle.data.GenericParticleData;
 import team.lodestar.lodestone.systems.particle.data.color.ColorParticleData;
 import team.lodestar.lodestone.systems.particle.data.spin.SpinParticleData;
-import team.lodestar.lodestone.systems.particle.world.behaviors.BillboardParticleBehavior;
 import team.lodestar.lodestone.systems.particle.world.behaviors.components.DirectionalBehaviorComponent;
-import team.lodestar.lodestone.systems.particle.world.behaviors.components.ExtrudingSparkBehaviorComponent;
 import team.lodestar.lodestone.systems.particle.world.behaviors.components.LodestoneBehaviorComponent;
 
 import java.awt.*;
