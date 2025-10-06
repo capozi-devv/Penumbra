@@ -11,7 +11,8 @@
     "ItemMixin",
     "ItemRendererAccessor",
     "ItemRendererMixin",
-    "ModelLoaderMixin"
+    "ModelLoaderMixin",
+    "KeyboardMixin"
   ],
   "client": [
     "ClawRenderMixin",

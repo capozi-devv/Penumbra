@@ -1,6 +1,7 @@
 package net.eya.penumbra.foundation;
 
 import net.eya.penumbra.Penumbra;
+import net.eya.penumbra.common.effect.ChainedEffect;
 import net.eya.penumbra.common.effect.NecrosisEffect;
 
 import net.minecraft.entity.effect.StatusEffect;
@@ -16,5 +17,7 @@ public class EffectInit {
         return Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(Penumbra.MOD_ID, name),statusEffect);
     }
     public static final StatusEffect NECROSIS = new NecrosisEffect(StatusEffectCategory.HARMFUL, -16777216);
+    public static final StatusEffect CHAINED = new ChainedEffect();
     private static final RegistryEntry<StatusEffect> NECROSIS_EFFECT = registerStatusEffect("decadence", NECROSIS);
+    private static final RegistryEntry<StatusEffect> CHAINED_EFFECT = registerStatusEffect("chained", CHAINED);
 }
