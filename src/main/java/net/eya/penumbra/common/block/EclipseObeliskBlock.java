@@ -22,7 +22,6 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class EclipseObeliskBlock extends Block {
     public static final VoxelShape SHAPE = createCuboidShape((double)1.5F, (double)0.0F, (double)1.5F, (double)14.5F, (double)32.0F, (double)14.5F);
-    int times = ThreadLocalRandom.current().nextInt(40, 61);
     public EclipseObeliskBlock(Settings settings) {
         super(settings);
     }

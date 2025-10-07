@@ -8,8 +8,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import java.util.UUID;
 
 public class HealthUtils {
-    private static final UUID EXTRA_HEARTS_UUID = UUID.fromString("5a1b9c9e-63ea-46e1-9d13-ecb6a20f125d");
-    private static final UUID REDUCED_HEALTH_UUID = UUID.fromString("deadbeef-dead-beef-dead-beefdeadbeef");
+    public static final UUID EXTRA_HEARTS_UUID = UUID.fromString("5a1b9c9e-63ea-46e1-9d13-ecb6a20f125d");
+    public static final UUID REDUCED_HEALTH_UUID = UUID.fromString("deadbeef-dead-beef-dead-beefdeadbeef");
     public static void addExtraHearts(PlayerEntity player, double extraHearts) {
         var attribute = player.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH);
         if (attribute != null && attribute.getModifier(EXTRA_HEARTS_UUID) == null) {

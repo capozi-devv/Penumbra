@@ -28,5 +28,9 @@ public class ItemGroups {
                         entries.add(ItemInit.RITUAL_DAGGER);
                         entries.add(ItemInit.SERVITUDE_TOKEN);
                         entries.add(BlockInit.OBELISK);
+                        entries.add(ItemInit.SHACKLE_PIECE);
+                        entries.add(ItemInit.UMBRA_CORE);
+                        entries.add(ItemInit.ELDRITCH_SHACKLE);
+                        entries.add(ItemInit.WARHORN);
             }).build());
 }

@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "CGS ",
+    "IUI",
+    "SGC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:cobblestone"
+    },
+    "G": {
+      "item": "minecraft:gold_block"
+    },
+    "S": {
+      "item": "penumbra:shackle_piece"
+    },
+    "I": {
+      "item": "minecraft:gold_ingot"
+    },
+    "U": {
+      "item": "penumbra:umbra_shard"
+    }
+  },
+  "result": {
+    "item": "penumbra:ritual_dagger",
+    "count": 1
+  },
+  "show_notification": true
+}
