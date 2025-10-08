@@ -5,7 +5,8 @@ IMMA JUST HAVE THE WHOLE CONCEPT HERE:
 - Sacrificial Daggers: when used on an eclipse obelisk removes two hearts of maximum hp from the user and binds them to it.
 - Eldritch Shackle: when used binds the targeted player with golden chains on their arms and legs, while bound the player cannot move and their attack damage is slowed down by 80% crafted with eight shackle shards (i'll do a scavenger hunt for these)
 - Warhorn: Creates a sound blast that knocks back players and damages them if they are within range.
-- **Eclipse Avatar:**
+- 
+**Eclipse Avatar:**
 - The Eclipse: during the eclipse avatar's transformation the sky is replaced with one with an eclipsed sun and golden stars.
 - general changes: the eclipse avatar has 30 hearts however it cannot eat or regenerate from food. instead it heals from it's weapons and abilities.
 - Armor: the eclipse avatar has armor, it's stats are the same as netherite but with more knockback resistance, the armor will also have the following enchantments (from enchancements, if impossible this'll be done manually): gale on the boots, dash on the leggings, strafe on the chestplate, perception on the helmet.
