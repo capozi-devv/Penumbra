@@ -56,7 +56,6 @@ public class PenumbraClient implements ClientModInitializer {
             SkyboxCommands.register(dispatcher);
         });
         ParticleInit.registerParticleFactory();
-
         ModelPredicateProviderRegistry.register(
                 ItemInit.WARHORN,
                 new Identifier("tooting"),
