@@ -13,6 +13,7 @@ import org.joml.Matrix4f;
 import team.lodestar.lodestone.systems.rendering.VFXBuilders;
 
 import java.awt.*;
+import java.util.function.Consumer;
 
 public class AllVFX {
     public static final Color color = new Color(248, 209, 109);
@@ -33,6 +34,9 @@ public class AllVFX {
                 .setRenderType(RenderLayer.getTranslucent())
                 .setVertexConsumer(vertexConsumer)
                 .setAlpha(alpha);
-        builder.renderBeam(matrix4f, startPos, targetPos, 0.4f, b -> b.setColor(color).setAlpha(123f));
+        Consumer<VFXBuilders.WorldVFXBuilder> consumer = b -> {
+            builder.renderBeam(matrix4f, startPos, targetPos, 3.0f, camPos);
+        };
+        builder.renderBeam(matrix4f, startPos, targetPos, 3.0f, camPos, consumer);
     }
 }

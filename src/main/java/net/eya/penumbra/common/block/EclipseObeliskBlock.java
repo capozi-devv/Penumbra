@@ -3,9 +3,12 @@ package net.eya.penumbra.common.block;
 import net.eya.penumbra.common.lodestone.particle.AllParticles;
 import net.eya.penumbra.common.lodestone.worldvfx.AllVFX;
 
+import net.eya.penumbra.foundation.EffectInit;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.ShapeContext;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -35,12 +38,13 @@ public class EclipseObeliskBlock extends Block {
         super.randomDisplayTick(state, world, pos, random);
         if(world.isClient()) {
             AllParticles.obeliskParticles(world, Vec3d.ofCenter(pos));
+
         }
     }
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(world.isClient()) {
-            AllVFX.obeliskBeam(pos, 600);
+           // AllVFX.obeliskBeam(pos, 600);
             return ActionResult.SUCCESS;
         }
         return ActionResult.FAIL;

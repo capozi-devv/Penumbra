@@ -1,5 +1,8 @@
 package net.eya.penumbra.common.item;
 
+import net.eya.penumbra.Penumbra;
+import net.eya.penumbra.PenumbraComponents;
+import net.eya.penumbra.common.cca.LackeyComponent;
 import net.eya.penumbra.common.util.HealthUtils;
 import net.eya.penumbra.foundation.DamageTypeInit;
 import net.eya.penumbra.foundation.ItemInit;
@@ -22,8 +25,10 @@ public class RitualDaggerItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         DamageSource source = new DamageSource(world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(DamageTypeInit.DAGGER_DAMAGE));
         user.damage(source, 2f);
+        LackeyComponent lackeyComponent = Penumbra.getLackey().get(user);
         HealthUtils.removeExtraHearts(user);
         HealthUtils.reduceMaxHealth(user, 2f, false);
+        lackeyComponent.setLackey(true);
         ItemStack tokenStack = new ItemStack(ItemInit.SERVITUDE_TOKEN);
         tokenStack.getOrCreateNbt().putUuid("Servant", user.getUuid());
         tokenStack.getOrCreateNbt().putString("ServantName", user.getName().getString());

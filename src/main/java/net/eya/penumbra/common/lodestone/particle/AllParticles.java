@@ -20,7 +20,7 @@ import java.awt.*;
 
 public class AllParticles {
     public static void spawnClawParticles(World level, Vec3d pos) {
-        Color startingColor = new Color(255, 240, 154);
+        Color startingColor = new Color(255, 228, 67);
         Color endingColor = new Color(216, 167, 82);
         WorldParticleBuilder.create(LodestoneParticleRegistry.SPARKLE_PARTICLE)
                 .setScaleData(GenericParticleData.create(0.5f, 0).setEasing(Easing.QUARTIC_OUT).build())
@@ -43,20 +43,6 @@ public class AllParticles {
                 .addMotion(RandomHelper.randomBetween(Random.create(), -0.05f, 0.05f), RandomHelper.randomBetween(Random.create(), -0.05f, 0.05f), RandomHelper.randomBetween(Random.create(), -0.05f, 0.05f))
                 .spawn(level, pos.x+RandomHelper.randomBetween(Random.create(), -1.5f, 1.5f), pos.y+RandomHelper.randomBetween(Random.create(), -1.5f, 1.5f), pos.z+RandomHelper.randomBetween(Random.create(), -1.5f, 1.5f));
     }
-    public static void afterEffectParticles(World world, Vec3d pos) {
-        Color startingColor = new Color(248, 209, 109);
-        Color endingColor = new Color(118, 101, 89);
-        WorldParticleBuilder.create(LodestoneParticleRegistry.SMOKE_PARTICLE)
-                .setScaleData(GenericParticleData.create(0.25f, 0).build())
-                .setTransparencyData(GenericParticleData.create(0.75f, 0.25f).build())
-                .setColorData(ColorParticleData.create(startingColor, endingColor).setCoefficient(1.4f).setEasing(Easing.BOUNCE_IN_OUT).build())
-                .setLifetime(50)
-                .spawn(world, pos.x, pos.y, pos.z) // spawn at different locations on the player
-                .spawn(world, pos.x + 0.25f, pos.y, pos.z)
-                .spawn(world, pos.x, pos.y, pos.z)
-                .spawn(world, pos.x, pos.y, pos.z)
-                .spawn(world, pos.x, pos.y, pos.z);
-    }
     public static void obeliskParticles(World level, Vec3d pos) {
         Color startingColor = new Color(255, 240, 154);
         Color endingColor = new Color(216, 167, 82);
@@ -73,11 +59,11 @@ public class AllParticles {
         Color startColour = new Color(216, 167, 82);
         Color endingColor = new Color(184, 131, 70);
         WorldParticleBuilder.create(ParticleInit.SHOCKWAVE)
-                .setScaleData(GenericParticleData.create(1f, 65f).build())
+                .setScaleData(GenericParticleData.create(1f, 70f).build())
                 .setTransparencyData(GenericParticleData.create(0.85f, 0.85f, 0).build())
                 .setColorData(ColorParticleData.create(startColour, endingColor).setCoefficient(1.4f).build())
                 .setSpinData(SpinParticleData.create(0f, 0f).build())
-                .setLifetime(140)
+                .setLifetime(155)
                 .enableNoClip()
                 .setBehavior(new DirectionalBehaviorComponent(new Vec3d(0, 90, 0)))
                 .spawn(world, pos.x, pos.y, pos.z);
@@ -85,14 +71,14 @@ public class AllParticles {
     public static void bloomParticle(World world, Vec3d pos) {
         Color startColour = new Color(248, 209, 109);
         Color endingColor = new Color(216, 167, 82);
-        WorldParticleBuilder.create(LodestoneParticleRegistry.WISP_PARTICLE)
+        WorldParticleBuilder.create(LodestoneParticleRegistry.THIN_EXTRUDING_SPARK_PARTICLE)
                 .setScaleData(GenericParticleData.create(6f).build())
                 .setTransparencyData(GenericParticleData.create(0.85f, 0.85f, 0).build())
                 .setColorData(ColorParticleData.create(startColour, endingColor).setCoefficient(1.4f).build())
                 .setSpinData(SpinParticleData.create(0f, 0f).build())
                 .setLifetime(100)
                 .enableNoClip()
-                .setBehavior(LodestoneBehaviorComponent.EXTRUDING_SPARK)
-                .spawn(world, pos.x, pos.y, pos.z);
+                .setBehavior(new DirectionalBehaviorComponent(new Vec3d(0, 0, 0)))
+                .spawn(world, pos.x, pos.y + 2, pos.z);
     }
 }

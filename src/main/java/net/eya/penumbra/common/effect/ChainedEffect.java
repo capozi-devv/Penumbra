@@ -8,7 +8,7 @@ import net.minecraft.util.math.Vec3d;
 
 public class ChainedEffect extends StatusEffect {
     public ChainedEffect() {
-        super(StatusEffectCategory.HARMFUL, 0x5A5A5A);
+        super(StatusEffectCategory.HARMFUL, 0xFFBB00);
     }
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {

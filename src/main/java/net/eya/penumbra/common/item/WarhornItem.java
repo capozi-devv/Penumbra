@@ -38,9 +38,11 @@ public class WarhornItem extends GoatHornItem {
         if(world != null) {
             DamageSource source = new DamageSource(world.getRegistryManager().get(RegistryKeys.DAMAGE_TYPE).entryOf(DamageTypeInit.WARHORN_DAMAGE));
             AllParticles.shockwaveParticles(world, user.getPos().offset(Direction.UP, 1));
-            ScreenshakeHandler.addScreenshake(new PositionedScreenshakeInstance(100, user.getPos(), 5, 10).setIntensity(7).setEasing(Easing.LINEAR));
+            ScreenshakeHandler.addScreenshake(new PositionedScreenshakeInstance(145, user.getPos(), 50, 50).setIntensity(7).setEasing(Easing.LINEAR));
             playSound(world, user, InstrumentInit.WARHORN);
-            user.getItemCooldownManager().set(ItemInit.WARHORN, 1000);
+            if(!user.getAbilities().creativeMode){
+                user.getItemCooldownManager().set(ItemInit.WARHORN, 1000);
+            }
             Vec3d center = user.getPos();
             double radius = 8.0;
             Box box = new Box(

@@ -1,11 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
-  "pattern": [
-    "CGS ",
-    "IUI",
-    "SGC"
-  ],
   "key": {
     "C": {
       "item": "minecraft:cobblestone"
@@ -23,8 +18,13 @@
       "item": "penumbra:umbra_shard"
     }
   },
+  "pattern": [
+    "CGS",
+    "IUI",
+    "SGC"
+  ],
   "result": {
-    "item": "penumbra:ritual_dagger",
+    "item": "penumbra:eldritch_shackle",
     "count": 1
   },
   "show_notification": true
