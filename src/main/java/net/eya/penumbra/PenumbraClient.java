@@ -1,6 +1,7 @@
 package net.eya.penumbra;
 
 import net.eya.penumbra.common.command.SkyboxCommands;
+import net.eya.penumbra.common.lodestone.worldvfx.AllVFX;
 import net.eya.penumbra.common.render.EclipseHorns;
 import net.eya.penumbra.common.render.EclipseWings;
 import net.eya.penumbra.common.render.HornsFeatureRenderer;
@@ -13,6 +14,8 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.LivingEntityFeatureRendererRegistrationCallback;
+import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
@@ -22,6 +25,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.dimension.DimensionType;
 
 public class PenumbraClient implements ClientModInitializer {
@@ -67,5 +71,11 @@ public class PenumbraClient implements ClientModInitializer {
                     return 0.0F;
                 }
         );
+        WorldRenderEvents.LAST.register(ctx -> {
+            MinecraftClient client = MinecraftClient.getInstance();
+            if (client.world == null) return;
+
+            AllVFX.obeliskBeam(new BlockPos(0, 80, 0), 20);
+        });
     }
 }

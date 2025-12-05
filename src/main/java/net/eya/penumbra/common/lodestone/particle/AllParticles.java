@@ -81,4 +81,20 @@ public class AllParticles {
                 .setBehavior(new DirectionalBehaviorComponent(new Vec3d(0, 0, 0)))
                 .spawn(world, pos.x, pos.y + 2, pos.z);
     }
+    private static void glowAura(float scale, World world, Vec3d pos, float opacity) {
+        Color colour = new Color(216, 167, 82);
+        WorldParticleBuilder.create(LodestoneParticleRegistry.WISP_PARTICLE)
+                .setScaleData(GenericParticleData.create(scale).build())
+                .setTransparencyData(GenericParticleData.create(opacity, opacity, 0).build())
+                .setColorData(ColorParticleData.create(colour).setCoefficient(1.4f).build())
+                .setLifetime(100)
+                .enableNoClip()
+                .spawn(world, pos.x, pos.y, pos.z);
+    }
+    public static void executeGlowAura(World world, Vec3d pos) {
+        glowAura(1f, world, pos, 0.9f);
+        glowAura(3f, world, pos, 0.75f);
+        glowAura(5f, world, pos, 0.6f);
+        glowAura(7f, world, pos, 0.25f);
+    }
 }

@@ -1,17 +1,12 @@
 package net.eya.penumbra.common.lodestone.worldvfx;
 
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.render.Camera;
-import net.minecraft.client.render.RenderLayer;
-import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.VertexFormats;
+import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix4f;
-
 import team.lodestar.lodestone.systems.rendering.VFXBuilders;
-
 import java.awt.*;
 import java.util.function.Consumer;
 
@@ -30,13 +25,11 @@ public class AllVFX {
         float alpha = intensity / 60f;
         VFXBuilders.WorldVFXBuilder builder = VFXBuilders.createWorld()
                 .setColor(color)
-                .setFormatRaw(VertexFormats.POSITION_COLOR)
+                .setFormat(VertexFormats.POSITION_COLOR)
                 .setRenderType(RenderLayer.getTranslucent())
                 .setVertexConsumer(vertexConsumer)
                 .setAlpha(alpha);
-        Consumer<VFXBuilders.WorldVFXBuilder> consumer = b -> {
-            builder.renderBeam(matrix4f, startPos, targetPos, 3.0f, camPos);
-        };
+        Consumer<VFXBuilders.WorldVFXBuilder> consumer = b -> b.renderBeam(matrix4f, startPos, targetPos, 3.0f, camPos);
         builder.renderBeam(matrix4f, startPos, targetPos, 3.0f, camPos, consumer);
     }
 }
