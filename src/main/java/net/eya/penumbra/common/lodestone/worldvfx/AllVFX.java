@@ -1,12 +1,21 @@
 package net.eya.penumbra.common.lodestone.worldvfx;
 
+import net.eya.penumbra.Penumbra;
+import net.eya.penumbra.common.block.EclipseObeliskBlock;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.*;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Matrix4f;
+
+import team.lodestar.lodestone.handlers.RenderHandler;
+import team.lodestar.lodestone.registry.client.LodestoneRenderTypeRegistry;
+import team.lodestar.lodestone.systems.rendering.LodestoneRenderType;
 import team.lodestar.lodestone.systems.rendering.VFXBuilders;
+import team.lodestar.lodestone.systems.rendering.rendeertype.RenderTypeToken;
+
 import java.awt.*;
 import java.util.function.Consumer;
 
@@ -25,11 +34,32 @@ public class AllVFX {
         float alpha = intensity / 60f;
         VFXBuilders.WorldVFXBuilder builder = VFXBuilders.createWorld()
                 .setColor(color)
-                .setFormat(VertexFormats.POSITION_COLOR)
+                .setFormatRaw(VertexFormats.POSITION_COLOR)
                 .setRenderType(RenderLayer.getTranslucent())
                 .setVertexConsumer(vertexConsumer)
                 .setAlpha(alpha);
-        Consumer<VFXBuilders.WorldVFXBuilder> consumer = b -> b.renderBeam(matrix4f, startPos, targetPos, 3.0f, camPos);
+        Consumer<VFXBuilders.WorldVFXBuilder> consumer = b -> {
+            builder.renderBeam(matrix4f, startPos, targetPos, 3.0f, camPos);
+        };
         builder.renderBeam(matrix4f, startPos, targetPos, 3.0f, camPos, consumer);
+    }
+    private static RenderTypeToken getRenderTypeToken() {
+        return RenderTypeToken.createToken(new Identifier(Penumbra.MOD_ID, "textures/entity/beam2.png"));
+    }
+    private static final LodestoneRenderType RENDER_LAYER = LodestoneRenderTypeRegistry.ADDITIVE_TEXTURE.applyAndCache(getRenderTypeToken());
+    public static void renderObelisk(MatrixStack matrixStack, Vec3d pos) {
+        matrixStack.scale(1f, 1f, 1f);
+        VFXBuilders.WorldVFXBuilder builder = VFXBuilders.createWorld();
+        if (EclipseObeliskBlock.shouldRenderBeam) {
+            matrixStack.push();
+            matrixStack.translate(-pos.getX(), -pos.getY(), -pos.getZ());
+            Matrix4f matrix4f = matrixStack.peek().getPositionMatrix();
+            builder.replaceBufferSource(RenderHandler.DELAYED_RENDER.getTarget())
+                    .setRenderType(RENDER_LAYER)
+                    .setColor(new Color(255, 255, 255))
+                    .setAlpha(1.0f)
+                    .renderBeam(matrix4f, pos, pos.add(300,300,0), 8);
+            matrixStack.pop();
+        }
     }
 }

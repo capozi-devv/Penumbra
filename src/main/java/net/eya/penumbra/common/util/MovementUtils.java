@@ -16,12 +16,12 @@ public class MovementUtils {
         player.addVelocity(dashVelocity.x, dashVelocity.y, dashVelocity.z);
         player.velocityModified = true;
     }
-    public static void cancelMomentum(PlayerEntity player) {
-        if(player == null) return;
-        player.setVelocity(Vec3d.ZERO);
-        for (int i = 0; i < times; i++) {
-            AllParticles.spawnClawParticles(player.getWorld(), player.getPos());
-        }
-        player.velocityModified = true;
-    }
+//    public static void storeMomentum(PlayerEntity player) {
+//        if(player == null) return;
+//        player.setVelocity(Vec3d.ZERO);
+//        for (int i = 0; i < times; i++) {
+//            AllParticles.spawnClawParticles(player.getWorld(), player.getPos());
+//        }
+//        player.velocityModified = true;
+//    }
 }

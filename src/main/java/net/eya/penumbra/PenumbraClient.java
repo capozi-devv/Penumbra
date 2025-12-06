@@ -1,5 +1,6 @@
 package net.eya.penumbra;
 
+import net.eya.penumbra.common.block.EclipseObeliskBlock;
 import net.eya.penumbra.common.command.SkyboxCommands;
 import net.eya.penumbra.common.lodestone.worldvfx.AllVFX;
 import net.eya.penumbra.common.render.EclipseHorns;
@@ -18,14 +19,16 @@ import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.PlayerEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
 import net.minecraft.client.render.entity.model.PlayerEntityModel;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.dimension.DimensionType;
 
 public class PenumbraClient implements ClientModInitializer {
@@ -71,11 +74,16 @@ public class PenumbraClient implements ClientModInitializer {
                     return 0.0F;
                 }
         );
-        WorldRenderEvents.LAST.register(ctx -> {
-            MinecraftClient client = MinecraftClient.getInstance();
-            if (client.world == null) return;
-
-            AllVFX.obeliskBeam(new BlockPos(0, 80, 0), 20);
+        WorldRenderEvents.AFTER_ENTITIES.register((context) -> {
+            if (EclipseObeliskBlock.shouldRenderBeam) {
+                MatrixStack matrices = context.matrixStack();
+                VertexConsumerProvider.Immediate vertexConsumers = MinecraftClient.getInstance().getBufferBuilders().getEntityVertexConsumers();
+                matrices.push();
+                //(MatrixStack matrixStack, BlockPos pos)
+                AllVFX.renderObelisk(matrices, Vec3d.ofCenter(EclipseObeliskBlock.obeliskPos));
+                matrices.pop();
+                vertexConsumers.draw();
+            }
         });
     }
 }
